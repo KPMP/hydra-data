@@ -1,10 +1,6 @@
 package org.kpmp.repositoryDataset;
-import org.kpmp.file.File;
-import java.util.List;
 
 public interface RepositoryDataset {
-
-  List<File> getRelatedFiles();
   
   String getLevel();
   
