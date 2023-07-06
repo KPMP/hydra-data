@@ -7,10 +7,6 @@ import javax.persistence.Column;
 
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.lang.Nullable;
-import org.kpmp.file.File;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "repo_link_v")
