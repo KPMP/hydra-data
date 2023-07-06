@@ -1,0 +1,49 @@
+type Query {
+    repositoryDataset: [RepositoryDataset]
+    repositoryExternalLink: [RepositoryExternalLink]
+}
+
+type File {
+ fileId: ID
+ dlFileId: String
+ fileName: String
+ packageId: String
+ fileSize: Float
+}
+
+type RepositoryDataset {
+    dlFileId: String # may be null
+    fileName: String # may be null
+    packageId: String # may be null
+    fileSize: Float # may be null
+    configType: String
+    imageType: String
+    dataType: String
+    redcapId: String
+    age: String
+    protocol: String
+    sampleType: String
+    sex: String
+    tissueSource: String
+    tissueType: String
+    spectrackSampleId: String
+    level: String # may be null
+    relatedFiles: [File] # may be null
+    externalLink: String # may be null
+}
+
+type RepositoryExternalLink {
+    externalLink: String
+    configType: String
+    imageType: String
+    dataType: String
+    spectrackSampleId: String
+    redcapId: String
+    participantId: Int
+    age: String
+    protocol: String
+    sampleType: String
+    sex: String
+    tissueSource: String
+    tissueType: String
+}
