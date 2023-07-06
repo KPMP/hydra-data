@@ -1,20 +1,14 @@
 package org.kpmp.repositoryDataset;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.kpmp.file.File;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
-@Table(name = "sv_file_v")
+@Table(name = "repo_file_v")
 public class RepositoryFileDataset implements RepositoryDataset {
 
     @Id
@@ -37,17 +31,6 @@ public class RepositoryFileDataset implements RepositoryDataset {
     private String tissueSource;
     private String tissueType;
     private String level;
-
-    @JoinTable(
-            name = "sv_related_files",
-            joinColumns = @JoinColumn(
-                    name = "file_id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "related_file_id"
-            )
-    )
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<File> relatedFiles;
 
     @JsonProperty("fileid")
     public int getFileId() {
@@ -209,15 +192,6 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     public void setLevel(String level) {
         this.level = level;
-    }
-
-    @JsonProperty("relatedfiles")
-    public List<File> getRelatedFiles() {
-        return relatedFiles;
-    }
-
-    public void setRelatedFiles(List<File> relatedFiles) {
-        this.relatedFiles = relatedFiles;
     }
 
     @JsonProperty("externallink")

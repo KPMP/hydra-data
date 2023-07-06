@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "sv_link_v")
+@Table(name = "repo_link_v")
 public class RepositoryExternalLinkDataset implements RepositoryDataset {
 
     @Id
@@ -160,11 +160,6 @@ public class RepositoryExternalLinkDataset implements RepositoryDataset {
     @JsonProperty("dlfileid")
     public String getDlFileId() {
         return null;
-    }
-    @Nullable
-    @JsonProperty("relatedfiles")
-    public List<File> getRelatedFiles() {
-        return new ArrayList<>();
     }
 
     @JsonIgnore
