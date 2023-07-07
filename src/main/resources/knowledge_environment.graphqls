@@ -30,5 +30,5 @@ type RepositoryDataset {
     protocol: String # may be null
     packageId: String # may be null
     tissueSource: String
-    releaseVersion: Integer   
+    releaseVersion: Float
 }
