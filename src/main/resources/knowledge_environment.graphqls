@@ -28,7 +28,6 @@ type RepositoryDataset {
     tissueType: String
     spectrackSampleId: String
     level: String # may be null
-    relatedFiles: [File] # may be null
     externalLink: String # may be null
 }
 
