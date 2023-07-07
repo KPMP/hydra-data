@@ -1,6 +1,5 @@
 type Query {
     repositoryDataset: [RepositoryDataset]
-    repositoryExternalLink: [RepositoryExternalLink]
 }
 
 type File {
@@ -13,36 +12,23 @@ type File {
 
 type RepositoryDataset {
     dlFileId: String # may be null
+    redcapId: String
+    sampleType: String
+    tissueType: String
+    ageBinned: String
+    sex: String
+    doi: String
+    access: String
+    platform: String
+    experimentalStrategy: String
+    dataCategory: String
+    workflowType: String
+    dataFormat: String
+    dataType: String
     fileName: String # may be null
-    packageId: String # may be null
     fileSize: Float # may be null
-    configType: String
-    imageType: String
-    dataType: String
-    redcapId: String
-    age: String
-    protocol: String
-    sampleType: String
-    sex: String
+    protocol: String # may be null
+    packageId: String # may be null
     tissueSource: String
-    tissueType: String
-    spectrackSampleId: String
-    level: String # may be null
-    externalLink: String # may be null
-}
-
-type RepositoryExternalLink {
-    externalLink: String
-    configType: String
-    imageType: String
-    dataType: String
-    spectrackSampleId: String
-    redcapId: String
-    participantId: Int
-    age: String
-    protocol: String
-    sampleType: String
-    sex: String
-    tissueSource: String
-    tissueType: String
+    releaseVersion: Integer   
 }
