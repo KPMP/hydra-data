@@ -21,7 +21,6 @@ public class RepositoryDatasetService  {
 	private String enterpriseSearchHost;
 	@Value("${enterprise-search.engine.name}")
 	private String enterpriseSearchEngineName;
-	private RepositoryExternalLinkRepository externalLinkRepo;
 	private RepositoryFileDatasetRepository fileRepo;
 
 	private RestTemplate restTemplate;
@@ -50,9 +49,7 @@ public class RepositoryDatasetService  {
 
 	@Autowired
 	public RepositoryDatasetService(
-		 RepositoryExternalLinkRepository externalLinkRepo,
 		 RepositoryFileDatasetRepository fileRepo, RestTemplate restTemplate, Environment env) {
-		this.externalLinkRepo = externalLinkRepo;
 		this.fileRepo = fileRepo;
 		this.restTemplate = restTemplate;
 		this.env = env;
@@ -60,17 +57,12 @@ public class RepositoryDatasetService  {
 
   public List<RepositoryDataset> getRepositoryDataset() throws Exception {
     List <RepositoryDataset> datasets = new ArrayList<>();
-    datasets.addAll(externalLinkRepo.findAll());
     datasets.addAll(fileRepo.findAll());
     return datasets;
 }
 
 	public List<RepositoryFileDataset> getRepositoryFileDataset() throws IOException, Exception {
 		return fileRepo.findAll();
-	}
-
-	public List<RepositoryExternalLinkDataset> getRepositoryExternalLink() throws IOException, Exception {
-		return externalLinkRepo.findAll();
 	}
 
 	public List<ESResponse> loadEnterpriseSearch() throws Exception {

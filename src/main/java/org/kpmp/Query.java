@@ -3,7 +3,6 @@ package org.kpmp;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.kpmp.repositoryDataset.RepositoryDataset;
 import org.kpmp.repositoryDataset.RepositoryDatasetService;
-import org.kpmp.repositoryDataset.RepositoryExternalLinkDataset;
 import org.kpmp.repositoryDataset.RepositoryFileDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,9 +28,5 @@ public class Query implements GraphQLQueryResolver {
 
 	public List<RepositoryFileDataset> getRepositoryFileDataset() throws IOException, Exception {
 		return repositoryDatasetService.getRepositoryFileDataset();
-	}
-
-	public List<RepositoryExternalLinkDataset> getRepositoryExternalLink() throws IOException, Exception {
-		return repositoryDatasetService.getRepositoryExternalLink();
 	}
 }
