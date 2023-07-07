@@ -26,6 +26,8 @@ public interface RepositoryDataset {
 
   String getWorkflowType();
 
+  String getDataFormat();
+
   String getDataType();
 
   String getFileName();
