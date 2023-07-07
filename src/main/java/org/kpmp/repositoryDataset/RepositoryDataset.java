@@ -38,6 +38,8 @@ public interface RepositoryDataset {
 
   String getPackageId();
 
+  String getTissueSource();
+
   Integer getReleaseVersion();
 
 }
