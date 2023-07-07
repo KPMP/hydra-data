@@ -3,12 +3,8 @@ package org.kpmp.repositoryDataset;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.kpmp.file.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class RepositoryFileDatasetTest {
 
@@ -25,27 +21,87 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setFileId() {
-        repositoryDataset.setFileId(12345);
-        assertEquals(12345, repositoryDataset.getFileId());
-    }
-
-    @Test
     public void setDlFileId() {
         repositoryDataset.setDlFileId("dl_file_id");
         assertEquals("dl_file_id", repositoryDataset.getDlFileId());
     }
 
     @Test
-    public void setFileName() {
-        repositoryDataset.setFileName("file.jpg");
-        assertEquals("file.jpg", repositoryDataset.getFileName());
+    public void setRedcapId() {
+        repositoryDataset.setRedcapId("redcapid");
+        assertEquals("redcapid", repositoryDataset.getRedcapId());
+    }
+
+     @Test
+    public void setSampleType() {
+        repositoryDataset.setSampleType("sample");
+        assertEquals("sample", repositoryDataset.getSampleType());
     }
 
     @Test
-    public void setPackageId() {
-        repositoryDataset.setPackageId("package_id");
-        assertEquals("package_id", repositoryDataset.getPackageId());
+    public void setTissueType() {
+        repositoryDataset.setTissueType("ttype");
+        assertEquals("ttype", repositoryDataset.getTissueType());
+    }
+
+    @Test
+    public void setAgeBinned() {
+        repositoryDataset.setAgeBinned("age-age2");
+        assertEquals("age-age2", repositoryDataset.getAgeBinned());
+    }
+
+    @Test
+    public void setSex() {
+        repositoryDataset.setSex("sex");
+        assertEquals("sex", repositoryDataset.getSex());
+    }
+
+    @Test
+    public void setDoi() {
+        repositoryDataset.setDoi("doi_text");
+        assertEquals("doi_text", repositoryDataset.getDoi());
+    }
+
+    @Test
+    public void setAccess() {
+        repositoryDataset.setAccess("open");
+        assertEquals("open", repositoryDataset.getAccess());
+    }
+
+    @Test
+    public void setPlatform() {
+        repositoryDataset.setPlatform("Platform");
+        assertEquals("Platform", repositoryDataset.getPlatform());
+    }
+
+    @Test
+    public void setExperimentalStrategy() {
+        repositoryDataset.setExperimentalStrategy("strategy");
+        assertEquals("strategy", repositoryDataset.getExperimentalStrategy());
+    }
+
+    @Test
+    public void setDataCategory() {
+        repositoryDataset.setDataCategory("category");
+        assertEquals("category", repositoryDataset.getDataCategory());
+    }
+
+    @Test
+    public void setWorkflowType() {
+        repositoryDataset.setWorkflowType("working");
+        assertEquals("working", repositoryDataset.getWorkflowType());
+    }
+    
+    @Test
+    public void setDataType() {
+        repositoryDataset.setDataType("dtype");
+        assertEquals("dtype", repositoryDataset.getDataType());
+    }
+
+    @Test
+    public void setFileName() {
+        repositoryDataset.setFileName("file.jpg");
+        assertEquals("file.jpg", repositoryDataset.getFileName());
     }
 
     @Test
@@ -60,69 +116,22 @@ public class RepositoryFileDatasetTest {
         assertEquals("blah", repositoryDataset.getProtocol());
     }
 
-    @Test
-    public void setImageType() {
-        repositoryDataset.setImageType("type");
-        assertEquals("type", repositoryDataset.getImageType());
-    }
 
     @Test
-    public void setDataType() {
-        repositoryDataset.setDataType("dtype");
-        assertEquals("dtype", repositoryDataset.getDataType());
-    }
-
-    @Test
-    public void setParticipantId() {
-        repositoryDataset.setParticipantId(12);
-        assertEquals(12, repositoryDataset.getParticipantId());
-    }
-
-    @Test
-    public void setRedcapId() {
-        repositoryDataset.setRedcapId("redcapid");
-        assertEquals("redcapid", repositoryDataset.getRedcapId());
-    }
-
-    @Test
-    public void setAge() {
-        repositoryDataset.setAge("age");
-        assertEquals("age", repositoryDataset.getAge());
-    }
-
-    @Test
-    public void setSampleType() {
-        repositoryDataset.setSampleType("sample");
-        assertEquals("sample", repositoryDataset.getSampleType());
-    }
-
-    @Test
-    public void setSex() {
-        repositoryDataset.setSex("sex");
-        assertEquals("sex", repositoryDataset.getSex());
+    public void setPackageId() {
+        repositoryDataset.setPackageId("package_id");
+        assertEquals("package_id", repositoryDataset.getPackageId());
     }
 
     @Test
     public void setTissueSource() {
-        repositoryDataset.setTissueSource("tsource");
-        assertEquals("tsource", repositoryDataset.getTissueSource());
+        repositoryDataset.setTissueSource("blah");
+        assertEquals("blah", repositoryDataset.getTissueSource());
     }
 
     @Test
-    public void setTissueType() {
-        repositoryDataset.setTissueType("ttype");
-        assertEquals("ttype", repositoryDataset.getTissueType());
-    }
-
-    @Test
-    public void setSpectrackSampleId() {
-        repositoryDataset.setSpectrackSampleId("spectrack");
-        assertEquals("spectrack", repositoryDataset.getSpectrackSampleId());
-    }
-
-    @Test
-    public void setLevel() {
-        repositoryDataset.setLevel("L0");
-        assertEquals("L0", repositoryDataset.getLevel());
+    public void setReleaseVersion() {
+        repositoryDataset.setReleaseVersion(42);
+        assertEquals(42, repositoryDataset.getReleaseVersion());
     }
 }

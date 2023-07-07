@@ -233,5 +233,8 @@ public class RepositoryFileDataset implements RepositoryDataset {
         return releaseVersion;
     }
 
+    public void setReleaseVersion(Integer releaseVersion){
+        this.releaseVersion = releaseVersion;
+    }
 
 }

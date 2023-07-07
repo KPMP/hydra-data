@@ -24,8 +24,6 @@ public class RepositoryDatasetServiceTest {
 
 	@Mock
 	private RepositoryFileDatasetRepository fileRepo;
-	@Mock
-	private RepositoryExternalLinkRepository externalLinkRepo;
 
 	@Mock
 	private RestTemplate restTemplate;
@@ -39,7 +37,7 @@ public class RepositoryDatasetServiceTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
-		service = new RepositoryDatasetService(externalLinkRepo, fileRepo, restTemplate, env);
+		service = new RepositoryDatasetService(fileRepo, restTemplate, env);
 		ReflectionTestUtils.setField(service, "enterpriseSearchHost", "host");
 		ReflectionTestUtils.setField(service, "enterpriseSearchEngineName", "search-engine");
 	}
@@ -57,12 +55,6 @@ public class RepositoryDatasetServiceTest {
 	}
 
 	@Test
-	public void testGetRepositoryExternalLink() throws JSONException, Exception {
-    List<RepositoryDataset> expectedResult = new ArrayList<>();
-		assertEquals(expectedResult, service.getRepositoryExternalLink());
-	}
-
-	@Test
 	public void testRepositoryFileDataset() throws JSONException, Exception {
     List<RepositoryDataset> expectedResult = new ArrayList<>();
 		assertEquals(expectedResult, service.getRepositoryFileDataset());
@@ -76,19 +68,12 @@ public class RepositoryDatasetServiceTest {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
 		ArrayList<RepositoryDataset> results = new ArrayList<>();
-		List<RepositoryExternalLinkDataset> expectedResult1 = new ArrayList<>();
 		List<RepositoryFileDataset> expectedResult2 = new ArrayList<>();
-		RepositoryExternalLinkDataset repositoryDataset1 = new RepositoryExternalLinkDataset();
-		RepositoryExternalLinkDataset repositoryDataset2 = new RepositoryExternalLinkDataset();
 		RepositoryFileDataset repositoryDataset3 = new RepositoryFileDataset();
 		RepositoryFileDataset repositoryDataset4 = new RepositoryFileDataset();
-		expectedResult1.add(repositoryDataset1);
-		expectedResult1.add(repositoryDataset2);
 		expectedResult2.add(repositoryDataset3);
 		expectedResult2.add(repositoryDataset4);
-		when(externalLinkRepo.findAll()).thenReturn(expectedResult1);
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
-		results.addAll(expectedResult1);
 		results.addAll(expectedResult2);
 
 		HttpEntity<Object> entity = new HttpEntity<>(results, headers);
