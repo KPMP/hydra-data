@@ -36,8 +36,8 @@ If you have having troubles seeing changes during development, you can try to cl
 # Regenerate the Spatial Viewer Search Engine
 
 1. Login to the KE Enterprise Search console (see https://docs.google.com/document/d/1uMb_ooDEU6PDkZOuFQGnPHo07UtnA-mrfwe3lpuEiho)
-2. Delete the “spatial-viewer” search engine
-3. Create a new “spatial-viewer” search engine
+2. Delete the "repository" search engine
+3. Create a new "repository" search engine
 4. SSH to the appropriate KE machine
 5. Execute:
-    `curl -X GET http://localhost:3040/api/v1/spatial-viewer/load-search`
+    `curl -X GET http://localhost:3050/api/v1/repository/load-search`
