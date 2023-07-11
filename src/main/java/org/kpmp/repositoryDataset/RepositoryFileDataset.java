@@ -45,7 +45,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("redcapid")
+    @JsonProperty("redcap_id")
     public String getRedcapId() {
         return redcapId;
     }
@@ -55,7 +55,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
     
     @Nullable
-    @JsonProperty("sampletype")
+    @JsonProperty("sample_type")
     public String getSampleType() {
         return sampleType;
     }
@@ -65,7 +65,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("tissuetype")
+    @JsonProperty("tissue_type")
     public String getTissueType(){
         return tissueType;
     }
@@ -75,7 +75,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("agebinned")
+    @JsonProperty("age_binned")
     public String getAgeBinned(){
         return ageBinned;
     }
@@ -125,7 +125,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("experimentalstrategy")
+    @JsonProperty("experimental_strategy")
     public String getExperimentalStrategy(){
         return experimentalStrategy;
     }
@@ -135,7 +135,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("datacategory")
+    @JsonProperty("data_category")
     public String getDataCategory(){
         return dataCategory;
     }
@@ -145,7 +145,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("workflowtype")
+    @JsonProperty("workflow_type")
     public String getWorkflowType(){
         return workflowType;
     }
@@ -155,7 +155,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("dataformat")
+    @JsonProperty("data_format")
     public String getDataFormat(){
         return dataFormat;
     }
@@ -165,7 +165,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
 
-    @JsonProperty("datatype")
+    @JsonProperty("data_type")
     public String getDataType() {
             return dataType;
     }
@@ -175,7 +175,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
 
-    @JsonProperty("filename")
+    @JsonProperty("file_name")
     public String getFileName(){
         return fileName;
     }
@@ -185,7 +185,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("filesize")
+    @JsonProperty("file_size")
     public Long getFileSize(){
         return fileSize;
     }
@@ -207,7 +207,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     
     @Nullable
-    @JsonProperty("packageid")
+    @JsonProperty("package_id")
     public String getPackageId() {
         return packageId;
     }
@@ -218,7 +218,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     
 
     @Nullable
-    @JsonProperty("tissuesource")
+    @JsonProperty("tissue_source")
     public String getTissueSource() {
         return tissueSource;
     }
@@ -228,7 +228,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
     }
 
     @Nullable
-    @JsonProperty("releaseversion")
+    @JsonProperty("release_version")
     public Integer getReleaseVersion(){
         return releaseVersion;
     }
