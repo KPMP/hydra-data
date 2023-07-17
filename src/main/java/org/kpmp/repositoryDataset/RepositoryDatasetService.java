@@ -66,8 +66,8 @@ public class RepositoryDatasetService  {
     datasets.addAll(fileRepo.findAll());
 		String maxReleaseVersion = fileRepo.max();
 		for (RepositoryDataset repositoryDataset : datasets) {
-			if (repositoryDataset.getReleaseVersion().equals(maxReleaseVersion)) {
-				repositoryDataset.setReleaseVersion("Recently Released"); //
+			if (repositoryDataset.getReleaseVersion() == maxReleaseVersion) {
+				repositoryDataset.setReleaseVersion("Recently Released"); 
 			} else {
 				repositoryDataset.setReleaseVersion(null);
 			}
