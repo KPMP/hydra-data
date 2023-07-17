@@ -42,5 +42,5 @@ public interface RepositoryDataset {
 
   String getReleaseVersion();
 
-  public void setReleaseVersion(String string);
+  public void setReleaseVersion(String releaseVersion);
 }
