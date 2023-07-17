@@ -2,6 +2,7 @@ package org.kpmp.repositoryDataset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -9,11 +10,16 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.io.IOException;
-
 @Service
 public class RepositoryDatasetService  {
 
@@ -56,9 +62,19 @@ public class RepositoryDatasetService  {
 	}
 
   public List<RepositoryDataset> getRepositoryDataset() throws Exception {
-    List <RepositoryDataset> datasets = new ArrayList<>();
+    List <RepositoryDataset> datasets = new ArrayList<>(); 
     datasets.addAll(fileRepo.findAll());
-    return datasets;
+		String maxReleaseVersion = fileRepo.max();
+		for (RepositoryDataset repositoryDataset : datasets) {
+			if (repositoryDataset.getReleaseVersion().equals(maxReleaseVersion)) {
+				repositoryDataset.setReleaseVersion("Recently Released"); //
+			} else {
+				repositoryDataset.setReleaseVersion(null);
+			}
+		}
+
+		return datasets;
+		
 }
 
 	public List<RepositoryFileDataset> getRepositoryFileDataset() throws IOException, Exception {
