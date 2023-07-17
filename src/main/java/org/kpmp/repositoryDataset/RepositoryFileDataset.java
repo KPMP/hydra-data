@@ -33,8 +33,8 @@ public class RepositoryFileDataset implements RepositoryDataset {
     private String protocol;
     private String packageId;
     private String tissueSource;
-    private Integer releaseVersion;
-    
+    private String releaseVersion;
+
     @JsonProperty("dlfileid")
     public String getDlFileId(){
         return dlFileId;
@@ -229,12 +229,11 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     @Nullable
     @JsonProperty("release_version")
-    public Integer getReleaseVersion(){
+    public String getReleaseVersion(){
         return releaseVersion;
     }
 
-    public void setReleaseVersion(Integer releaseVersion){
+    public void setReleaseVersion(String releaseVersion){
         this.releaseVersion = releaseVersion;
     }
-
 }

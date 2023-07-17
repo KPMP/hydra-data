@@ -40,6 +40,7 @@ public interface RepositoryDataset {
 
   String getTissueSource();
 
-  Integer getReleaseVersion();
+  String getReleaseVersion();
 
+  public void setReleaseVersion(String string);
 }

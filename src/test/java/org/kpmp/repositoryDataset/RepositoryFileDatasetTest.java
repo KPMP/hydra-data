@@ -131,7 +131,7 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setReleaseVersion() {
-        repositoryDataset.setReleaseVersion(42);
-        assertEquals(42, repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion("42");
+        assertEquals("42", repositoryDataset.getReleaseVersion());
     }
 }

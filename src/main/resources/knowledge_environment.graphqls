@@ -2,6 +2,14 @@ type Query {
     repositoryDataset: [RepositoryDataset]
 }
 
+type ArFileInfo {
+    arFileInfoId: ID
+    fileId: String
+    releaseVersion: Float
+    releaseSunsetVersion: String
+    medatdataTypeId: float
+}
+
 type File {
  fileId: ID
  dlFileId: String
