@@ -259,7 +259,7 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     @JsonProperty("file_name_sort")
     public String getFileNameSort(){
-        fileNameSort = fileName.substring(0, 37);
+        fileNameSort = fileName.substring(37, fileName.length());
         return fileNameSort;
     }
 
