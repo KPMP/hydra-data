@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.data.annotation.Transient;
+import javax.persistence.Transient;
 import org.springframework.lang.Nullable;
 
 @Entity
@@ -261,7 +261,11 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     @JsonProperty("file_name_sort")
     public String getFileNameSort(){
-         return fileName = fileName.substring(0, 37);
+        if (fileName == null || fileName.length() < 37){
+            return fileName;
+        }else{
+            return fileName.substring(0, 37);
+        }
     }
 
     @JsonProperty("platform_sort")
