@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 
 import com.fasterxml.jackson.annotation.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.data.annotation.Transient;
 import org.springframework.lang.Nullable;
 
 @Entity
@@ -236,4 +240,34 @@ public class RepositoryFileDataset implements RepositoryDataset {
     public void setReleaseVersion(String releaseVersion){
         this.releaseVersion = releaseVersion;
     }
+
+    @Transient
+    private String participantIdSort;
+    @Transient
+    private String fileNameSort;
+    @Transient
+    private String platformSort;
+
+    @JsonProperty("participant_id_sort")
+    public String getParticipantIdSort(){
+        
+        if (redcapId.length() == 1 ){
+            return redcapId.replace("-", "");
+        }
+        else {
+            return redcapId = "Multiple Participants";
+        }
+    }
+
+    @JsonProperty("file_name_sort")
+    public String getFileNameSort(){
+         return fileName = fileName.substring(0, 37);
+    }
+
+    @JsonProperty("platform_sort")
+    public String getPlatformIdSort(){
+        return (platform == null) ? "aaaaa" : platform;
+    }
+
 }
+
