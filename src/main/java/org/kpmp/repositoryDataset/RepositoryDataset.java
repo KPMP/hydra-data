@@ -44,7 +44,7 @@ public interface RepositoryDataset {
 
   public void setReleaseVersion(String releaseVersion);
 
-  String getPlatformIdSort();
+  String getPlatformSort();
 
   String getParticipantIdSort();
 

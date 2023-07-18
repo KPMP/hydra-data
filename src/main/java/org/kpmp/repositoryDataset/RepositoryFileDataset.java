@@ -253,18 +253,18 @@ public class RepositoryFileDataset implements RepositoryDataset {
             return redcapId.replace("-", "");
         }
         else {
-            return redcapId = "Multiple Participants";
+            return "Multiple Participants";
         }
     }
 
     @JsonProperty("file_name_sort")
     public String getFileNameSort(){
-        fileName = fileName.substring(0, 37);
-        return fileName;
+        fileNameSort = fileName.substring(0, 37);
+        return fileNameSort;
     }
 
     @JsonProperty("platform_sort")
-    public String getPlatformIdSort(){
+    public String getPlatformSort(){
         return (platform == null) ? "aaaaa" : platform;
     }
 

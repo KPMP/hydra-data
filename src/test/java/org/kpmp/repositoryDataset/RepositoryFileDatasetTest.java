@@ -133,5 +133,26 @@ public class RepositoryFileDatasetTest {
     public void setReleaseVersion() {
         repositoryDataset.setReleaseVersion("42");
         assertEquals("42", repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion("Recently Released");
+        assertEquals("Recently Released", repositoryDataset.getReleaseVersion());
     }
+
+    @Test
+    public void setFileNameSort() {
+        repositoryDataset.setFileName("015eda7d-d867-4d30-b6fd-cbc679203fc3_possorted_genome_bam.bam");
+        assertEquals("possorted_genome_bam.bam", repositoryDataset.getFileNameSort());
+    }
+
+    @Test
+    public void setParticipantIdSort(){
+        repositoryDataset.setRedcapId("'43', '44'");
+        assertEquals("Multiple Participants", repositoryDataset.getParticipantIdSort());
+    }
+
+    @Test
+    public void setPlatformSort() {
+        repositoryDataset.setPlatform(null);
+        assertEquals("aaaaa", repositoryDataset.getPlatformSort());
+    }
+
 }
