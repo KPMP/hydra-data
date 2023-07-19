@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.Transient;
@@ -36,7 +38,14 @@ public class RepositoryFileDataset implements RepositoryDataset {
     private String packageId;
     private String tissueSource;
     private String releaseVersion;
-
+    @Transient
+    private int UUID_LENGTH = 37;
+    @Transient
+    private String participantIdSort;
+    @Transient
+    private String fileNameSort;
+    @Transient
+    private String platformSort;
     @JsonProperty("dlfileid")
     public String getDlFileId(){
         return dlFileId;
@@ -239,16 +248,9 @@ public class RepositoryFileDataset implements RepositoryDataset {
         this.releaseVersion = releaseVersion;
     }
 
-    @Transient
-    private String participantIdSort;
-    @Transient
-    private String fileNameSort;
-    @Transient
-    private String platformSort;
 
     @JsonProperty("participant_id_sort")
     public String getParticipantIdSort(){
-        
         if (redcapId.length() == 1 ){
             return redcapId.replace("-", "");
         }
@@ -259,13 +261,17 @@ public class RepositoryFileDataset implements RepositoryDataset {
 
     @JsonProperty("file_name_sort")
     public String getFileNameSort(){
-        fileNameSort = fileName.substring(37, fileName.length());
+        fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
         return fileNameSort;
     }
 
     @JsonProperty("platform_sort")
     public String getPlatformSort(){
         return (platform == null) ? "aaaaa" : platform;
+    }
+
+    public void addExistingFile(String dlFileId){
+        
     }
 
 }
