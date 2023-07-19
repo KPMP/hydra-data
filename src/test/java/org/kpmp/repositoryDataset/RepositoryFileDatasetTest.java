@@ -138,19 +138,19 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setFileNameSort() {
+    public void getFileNameSort() {
         repositoryDataset.setFileName("015eda7d-d867-4d30-b6fd-cbc679203fc3_possorted_genome_bam.bam");
         assertEquals("possorted_genome_bam.bam", repositoryDataset.getFileNameSort());
     }
 
     @Test
-    public void setParticipantIdSort(){
+    public void getParticipantIdSort(){
         repositoryDataset.setRedcapId("'43', '44'");
         assertEquals("Multiple Participants", repositoryDataset.getParticipantIdSort());
     }
 
     @Test
-    public void setPlatformSort() {
+    public void getPlatformSort() {
         repositoryDataset.setPlatform(null);
         assertEquals("aaaaa", repositoryDataset.getPlatformSort());
     }
