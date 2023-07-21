@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
@@ -50,13 +49,13 @@ public class RepositoryDatasetServiceTest {
 
 	@Test
 	public void testGetRepositoryDataset() throws JSONException, Exception {
-    List<RepositoryDataset> expectedResult = new ArrayList<>();
+    List<RepositoryFileDataset> expectedResult = new ArrayList<>();
 		assertEquals(expectedResult, service.getRepositoryDataset());
 	}
 
 	@Test
 	public void testRepositoryFileDataset() throws JSONException, Exception {
-    List<RepositoryDataset> expectedResult = new ArrayList<>();
+    List<RepositoryFileDataset> expectedResult = new ArrayList<>();
 		assertEquals(expectedResult, service.getRepositoryFileDataset());
 	}
 
@@ -67,7 +66,7 @@ public class RepositoryDatasetServiceTest {
 		headers.set("Authorization", "Bearer "+ "TOKEN");
 		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		ArrayList<RepositoryDataset> results = new ArrayList<>();
+		ArrayList<RepositoryFileDataset> results = new ArrayList<>();
 		List<RepositoryFileDataset> expectedResult2 = new ArrayList<>();
 		RepositoryFileDataset repositoryDataset3 = new RepositoryFileDataset();
 		RepositoryFileDataset repositoryDataset4 = new RepositoryFileDataset();

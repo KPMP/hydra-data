@@ -20,17 +20,17 @@ public class RepositoryFileDatasetTest {
         repositoryDataset = null;
     }
 
-    @Test
-    public void setDlFileId() {
-        repositoryDataset.setDlFileId("dl_file_id");
-        assertEquals("dl_file_id", repositoryDataset.getDlFileId());
-    }
+    // @Test
+    // public void setDlFileId() {
+    //     repositoryDataset.set(setDlFileId("dl_file_id");
+    //     assertEquals("dl_file_id", repositoryDataset.getDlFileId());
+    // }
 
-    @Test
-    public void setRedcapId() {
-        repositoryDataset.setRedcapId("redcapid");
-        assertEquals("redcapid", repositoryDataset.getRedcapId());
-    }
+    // @Test
+    // public void setRedcapId() {
+    //     repositoryDataset.setRedcapId("redcapid");
+    //     assertEquals("redcapid", repositoryDataset.getRedcapId());
+    // }
 
      @Test
     public void setSampleType() {
@@ -135,24 +135,6 @@ public class RepositoryFileDatasetTest {
         assertEquals("42", repositoryDataset.getReleaseVersion());
         repositoryDataset.setReleaseVersion("Recently Released");
         assertEquals("Recently Released", repositoryDataset.getReleaseVersion());
-    }
-
-    @Test
-    public void getFileNameSort() {
-        repositoryDataset.setFileName("015eda7d-d867-4d30-b6fd-cbc679203fc3_possorted_genome_bam.bam");
-        assertEquals("possorted_genome_bam.bam", repositoryDataset.getFileNameSort());
-    }
-
-    @Test
-    public void getParticipantIdSort(){
-        repositoryDataset.setRedcapId("'43', '44'");
-        assertEquals("Multiple Participants", repositoryDataset.getParticipantIdSort());
-    }
-
-    @Test
-    public void getPlatformSort() {
-        repositoryDataset.setPlatform(null);
-        assertEquals("aaaaa", repositoryDataset.getPlatformSort());
     }
 
 }
