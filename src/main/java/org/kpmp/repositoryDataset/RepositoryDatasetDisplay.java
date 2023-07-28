@@ -1,25 +1,26 @@
 package org.kpmp.repositoryDataset;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.*;
 
 public class RepositoryDatasetDisplay {
     private static final int UUID_LENGTH = 37;
     private String dlFileId;
-    private List<String> redcapId;
-    private List<String> sampleType;
-    private List<String> tissueType;
-    private List<String> ageBinned;
-    private List<String> sex;
-    private List<String> doi;
+    private Set<String> redcapId;
+    private Set<String> sampleType;
+    private Set<String> tissueType;
+    private Set<String> ageBinned;
+    private Set<String> sex;
+    private Set<String> doi;
     private String access;
     private String platform;
     private String releaseVersion;
-    private List<String> protocol;
-    private List<String> tissueSource;
-    private List<String> experimentalStrategy;
-    private List<String> workflowType;
+    private Set<String> protocol;
+    private Set<String> tissueSource;
+    private Set<String> experimentalStrategy;
+    private Set<String> workflowType;
     private String dataFormat;
     private String dataCategory;
     private String dataType;
@@ -30,16 +31,16 @@ public class RepositoryDatasetDisplay {
 
     public RepositoryDatasetDisplay(RepositoryFileDataset repositoryFile) {
         dlFileId = repositoryFile.getId().getDlFileId();
-        redcapId = new ArrayList<String>();
-        sampleType = new ArrayList<String>();
-        tissueType = new ArrayList<String>();
-        ageBinned = new ArrayList<String>();
-        sex = new ArrayList<String>();
-        doi = new ArrayList<String>();
-        protocol = new ArrayList<String>();
-        tissueSource = new ArrayList<String>();
-        experimentalStrategy = new ArrayList<String>();
-        workflowType = new ArrayList<String>();
+        redcapId = new HashSet<String>();
+        sampleType = new HashSet<String>();
+        tissueType = new HashSet<String>();
+        ageBinned = new HashSet<String>();
+        sex = new HashSet<String>();
+        doi = new HashSet<String>();
+        protocol = new HashSet<String>();
+        tissueSource = new HashSet<String>();
+        experimentalStrategy = new HashSet<String>();
+        workflowType = new HashSet<String>();
         redcapId.add(repositoryFile.getId().getRedcapId());
         sampleType.add(repositoryFile.getSampleType());
         tissueType.add(repositoryFile.getTissueType());
@@ -77,7 +78,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("redcap_id")
-    public List<String> getRedcapId() {
+    public Set<String> getRedcapId() {
         if(redcapId.isEmpty()) {
             return null;
         }else{
@@ -86,7 +87,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setRedcapId(List<String> redcapIds) {
+    public void setRedcapId(Set<String> redcapIds) {
         this.redcapId = redcapIds;
     }
 
@@ -98,7 +99,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("sample_type")
-    public List<String> getSampleType() {
+    public Set<String> getSampleType() {
         if(sampleType.isEmpty()){
             return null;
         }else{
@@ -107,7 +108,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setSampleType(List<String> sampleType) {
+    public void setSampleType(Set<String> sampleType) {
         this.sampleType = sampleType;
     }
 
@@ -118,7 +119,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("tissue_type")
-    public List<String> getTissueType() {
+    public Set<String> getTissueType() {
         if(tissueType.isEmpty()){
             return null;
         }else{
@@ -127,7 +128,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setTissueType(List<String> tissueType) {
+    public void setTissueType(Set<String> tissueType) {
         this.tissueType = tissueType;
     }
 
@@ -139,7 +140,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("age_binned")
-    public List<String> getAgeBinned() {
+    public Set<String> getAgeBinned() {
         if(ageBinned.isEmpty()){
             return null;
         }else{
@@ -148,7 +149,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setAgeBinned(List<String> ageBinned) {
+    public void setAgeBinned(Set<String> ageBinned) {
         this.ageBinned = ageBinned;
     }
 
@@ -160,7 +161,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("sex")
-    public List<String> getSex() {
+    public Set<String> getSex() {
         if (sex.isEmpty()){
             return null;
         }else{
@@ -168,7 +169,7 @@ public class RepositoryDatasetDisplay {
         }
     }
 
-    public void setSex(List<String> sex) {
+    public void setSex(Set<String> sex) {
         this.sex = sex;
     }
 
@@ -180,7 +181,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("doi")
-    public List<String> getDoi() {
+    public Set<String> getDoi() {
         if(doi.isEmpty()){
             return null;
         }else{
@@ -189,7 +190,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setDoi(List<String> doi) {
+    public void setDoi(Set<String> doi) {
         this.doi = doi;
     }
 
@@ -228,7 +229,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("protocol")
-    public List<String> getProtocol() {
+    public Set<String> getProtocol() {
         if (protocol.isEmpty()){
             return null;
         }else{
@@ -237,7 +238,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setProtocol(List<String> protocol) {
+    public void setProtocol(Set<String> protocol) {
         this.protocol = protocol;
     }
 
@@ -249,7 +250,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("tissue_source")
-    public List<String> getTissueSource() {
+    public Set<String> getTissueSource() {
         if(tissueSource.isEmpty()){
             return null;
         }else{
@@ -258,7 +259,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setTissueSource(List<String> tissueSource) {
+    public void setTissueSource(Set<String> tissueSource) {
         this.tissueSource = tissueSource;
     }
 
@@ -270,7 +271,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("experimental_strategy")
-    public List<String> getExperimentalStrategy() {
+    public Set<String> getExperimentalStrategy() {
         if(experimentalStrategy.isEmpty()){
             return null;
         }else{
@@ -279,7 +280,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setExperimentalStrategy(List<String> experimentalStrategy) {
+    public void setExperimentalStrategy(Set<String> experimentalStrategy) {
         this.experimentalStrategy = experimentalStrategy;
     }
 
@@ -291,7 +292,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("workflow_type")
-    public List<String> getWorkflowType() {
+    public Set<String> getWorkflowType() {
         if(workflowType.isEmpty()){
             return null;
         }else{
@@ -300,7 +301,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setWorkflowType(List<String> workflowType) {
+    public void setWorkflowType(Set<String> workflowType) {
         this.workflowType = workflowType;
     }
 
@@ -361,7 +362,7 @@ public class RepositoryDatasetDisplay {
     @JsonProperty("participant_id_sort")
     public String getParticipantIdSort() {
         if (redcapId.size() == 1) {
-            return redcapId.get(0).replace("-", "");
+            return redcapId.toString().replace("-", "");
         } else {
             return "Multiple Participants";
         }
