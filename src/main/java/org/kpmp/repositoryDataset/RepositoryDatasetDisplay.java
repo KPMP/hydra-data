@@ -362,7 +362,7 @@ public class RepositoryDatasetDisplay {
     @JsonProperty("participant_id_sort")
     public String getParticipantIdSort() {
         if (redcapId.size() == 1) {
-            return redcapId.toString().replace("-", "");
+            return redcapId.toString().replace("-", "").replace("[", "").replace("]", "");
         } else {
             return "Multiple Participants";
         }
