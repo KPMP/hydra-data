@@ -3,13 +3,13 @@ type Query {
 }
 
 type RepositoryDatasetDisplay {
-    file_id: String
+    dlFileId: String
     redcapId: [String]
     sampleType: [String]
     tissueType: [String]
     ageBinned: [String]
     sex: [String]
-    dois: [String]
+    doi: [String]
     access: String
     platform: String
     experimentalStrategy: [String]
