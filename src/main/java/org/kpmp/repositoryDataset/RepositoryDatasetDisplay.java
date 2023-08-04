@@ -61,7 +61,7 @@ public class RepositoryDatasetDisplay {
         packageId = repositoryFile.getPackageId();
     }
 
-    @JsonProperty("dlfileid")
+    @JsonProperty("file_id")
     public String getDlFileId() {
         return this.dlFileId;
     }
@@ -180,7 +180,7 @@ public class RepositoryDatasetDisplay {
         
     }
 
-    @JsonProperty("doi")
+    @JsonProperty("dois")
     public Set<String> getDoi() {
         if(doi.isEmpty()){
             return null;
