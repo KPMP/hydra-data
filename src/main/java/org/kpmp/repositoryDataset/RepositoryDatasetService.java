@@ -62,9 +62,6 @@ public class RepositoryDatasetService  {
     Map<String, RepositoryDatasetDisplay> displayFiles = new HashMap<>();
 	for (RepositoryFileDataset repositoryDataset : datasets) {
         if (displayFiles.containsKey(repositoryDataset.getId().getDlFileId())) {
-            if(repositoryDataset.getId().getDlFileId().equalsIgnoreCase("E283EACF-7950-4165-85E2-CE0128CDAA26")){
-                System.out.println("Adding redcapId " + repositoryDataset.getId().getRedcapId());
-            }
             // update all of the list items in that display file
             RepositoryDatasetDisplay displayFile = displayFiles.get(repositoryDataset.getId().getDlFileId());
             displayFile.addAgeBinned(repositoryDataset.getAgeBinned());
@@ -78,9 +75,6 @@ public class RepositoryDatasetService  {
             displayFile.addWorkflowType(repositoryDataset.getWorkflowType());
             displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
         } else {
-            if(repositoryDataset.getId().getDlFileId().equalsIgnoreCase("E283EACF-7950-4165-85E2-CE0128CDAA26")){
-                System.out.println("Creating new Clinical file...");
-            }
             RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
             
             if (repositoryDataset.getReleaseVersion() == maxReleaseVersion) {
