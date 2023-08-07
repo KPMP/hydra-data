@@ -20,18 +20,6 @@ public class RepositoryFileDatasetTest {
         repositoryDataset = null;
     }
 
-    // @Test
-    // public void setDlFileId() {
-    //     repositoryDataset.set(setDlFileId("dl_file_id");
-    //     assertEquals("dl_file_id", repositoryDataset.getDlFileId());
-    // }
-
-    // @Test
-    // public void setRedcapId() {
-    //     repositoryDataset.setRedcapId("redcapid");
-    //     assertEquals("redcapid", repositoryDataset.getRedcapId());
-    // }
-
      @Test
     public void setSampleType() {
         repositoryDataset.setSampleType("sample");
