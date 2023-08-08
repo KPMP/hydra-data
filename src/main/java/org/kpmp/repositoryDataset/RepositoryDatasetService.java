@@ -47,6 +47,10 @@ public class RepositoryDatasetService  {
 		}
 	}
 
+    public RepositoryDatasetService() {
+        // So spring doesn't yell at us
+    }
+
 	@Autowired
 	public RepositoryDatasetService(
 		 RepositoryFileDatasetRepository fileRepo, RestTemplate restTemplate, Environment env) {
