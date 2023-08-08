@@ -1,35 +1,46 @@
 package org.kpmp.repositoryDataset;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 public class RepositoryDatasetDisplayTest {
+  @Mock
   private RepositoryDatasetDisplay repositoryDatasetDisplay;
+  @Mock
   private RepositoryFileDataset repositoryFile;
 
   @BeforeEach
   public void setUp() throws Exception {
+    MockitoAnnotations.openMocks(this);
     repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
   }
 
   @AfterEach
   public void tearDown() throws Exception {
+    MockitoAnnotations.openMocks(this).close();
     repositoryDatasetDisplay = null;
+    repositoryFile = null;
   }
 
-  @Test
-  public void setDlFileId() {
-    repositoryDatasetDisplay.setDlFileId("abc_123");
+ @Test
+public void setDlFileId() {
+    RepositoryFileDataset repositoryFile = mock(RepositoryFileDataset.class);
+    when(repositoryFile.getId().getDlFileId()).thenReturn("abc_123");
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     assertEquals("abc_123", repositoryDatasetDisplay.getDlFileId());
+}
 
-  }
 
   @Test
   public void testAddRedCapId() {
@@ -217,7 +228,7 @@ public class RepositoryDatasetDisplayTest {
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addWorkflowType("workflow_type");
-    
+
     assertEquals(1, repositoryDatasetDisplay.getWorkflowType().size());
     assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getWorkflowType());
   }
