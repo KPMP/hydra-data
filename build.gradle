@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.graphql-java:graphql-java-tools:5.2.4'
     testImplementation 'org.mockito:mockito-core'
     implementation 'org.springframework.boot:spring-boot-starter-cache:2.6.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation('org.mockito:mockito-junit-jupiter:3.12.4')
 }
 
 springBoot {
