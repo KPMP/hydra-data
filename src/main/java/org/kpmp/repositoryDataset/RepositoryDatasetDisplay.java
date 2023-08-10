@@ -243,7 +243,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addTissueSource(String tissueSource) {
-        if(tissueSource.isEmpty()){
+        if(!(tissueSource == null || tissueSource.isEmpty())){
             this.tissueSource.add(tissueSource);
         }
 

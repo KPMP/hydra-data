@@ -19,10 +19,14 @@ public class RepositoryDatasetDisplayTest {
   private RepositoryDatasetDisplay repositoryDatasetDisplay;
   @Mock
   private RepositoryFileDataset repositoryFile;
+  @Mock
+  private RepositoryFileDatasetId repositoryFileId;
 
   @BeforeEach
   public void setUp() throws Exception {
     MockitoAnnotations.openMocks(this);
+    
+    when(repositoryFile.getId()).thenReturn(repositoryFileId);
     repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
   }
 
@@ -35,117 +39,122 @@ public class RepositoryDatasetDisplayTest {
 
  @Test
 public void setDlFileId() {
-    RepositoryFileDataset repositoryFile = mock(RepositoryFileDataset.class);
-    when(repositoryFile.getId().getDlFileId()).thenReturn("abc_123");
-    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
-    assertEquals("abc_123", repositoryDatasetDisplay.getDlFileId());
+    repositoryDatasetDisplay.setDlFileId("DataLakeId");
+
+    assertEquals("DataLakeId", repositoryDatasetDisplay.getDlFileId());
 }
 
 
   @Test
   public void testAddRedCapId() {
-    assertEquals(0, repositoryDatasetDisplay.getRedcapId().size());
+    assertEquals(1, repositoryDatasetDisplay.getRedcapId().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addRedCapId("redcap_id");
 
-    assertEquals(1, repositoryDatasetDisplay.getRedcapId().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getRedcapId());
+    assertEquals(2, repositoryDatasetDisplay.getRedcapId().size());
+    assertEquals(true ,repositoryDatasetDisplay.getRedcapId().contains("redcap_id"));
   }
 
   @Test
   public void setRedcapId(){
     Set<String> expected = new HashSet<String>(Arrays.asList("redcap_id", "redcap_id2"));
+    repositoryDatasetDisplay.setRedcapId(expected);
     Set<String> actual = repositoryDatasetDisplay.getRedcapId();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddSampleType(){
-    assertEquals(0, repositoryDatasetDisplay.getSampleType().size());
+    assertEquals(1, repositoryDatasetDisplay.getSampleType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addSampleType("sample_type");
 
-    assertEquals(1, repositoryDatasetDisplay.getSampleType().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getSampleType());
+    assertEquals(2, repositoryDatasetDisplay.getSampleType().size());
+    assertEquals(true, repositoryDatasetDisplay.getSampleType().contains("sample_type"));
   }
 
   @Test
   public void setSampleType() {
     Set<String> expected = new HashSet<String>(Arrays.asList("sample_type"));
+    repositoryDatasetDisplay.setSampleType(expected);
     Set<String> actual = repositoryDatasetDisplay.getSampleType();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddTissueType() {
-    assertEquals(0, repositoryDatasetDisplay.getTissueType().size());
+    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addTissueType("tissue_type");
 
-    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getTissueType());
+    assertEquals(2, repositoryDatasetDisplay.getTissueType().size());
+    assertEquals(true, repositoryDatasetDisplay.getTissueType().contains("tissue_type"));
   }
 
   @Test
   public void setTissueType() {
     Set<String> expected = new HashSet<String>(Arrays.asList("tissue_type"));
+    repositoryDatasetDisplay.setTissueType(expected);
     Set<String> actual = repositoryDatasetDisplay.getTissueType();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddAgeBinned() {
-    assertEquals(0, repositoryDatasetDisplay.getAgeBinned().size());
+    assertEquals(1, repositoryDatasetDisplay.getAgeBinned().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addAgeBinned("40-49");
 
-    assertEquals(1, repositoryDatasetDisplay.getAgeBinned().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getAgeBinned());
+    assertEquals(2, repositoryDatasetDisplay.getAgeBinned().size());
+    assertEquals(true, repositoryDatasetDisplay.getAgeBinned().contains("40-49"));
   }
 
   @Test
   public void setAgeBinned() {
     Set<String> expected = new HashSet<String>(Arrays.asList("40-49"));
+    repositoryDatasetDisplay.setAgeBinned(expected);
     Set<String> actual = repositoryDatasetDisplay.getAgeBinned();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddSex() {
-    assertEquals(0, repositoryDatasetDisplay.getSex().size());
+    assertEquals(1, repositoryDatasetDisplay.getSex().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addSex("Female");
 
-    assertEquals(1, repositoryDatasetDisplay.getSex().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getSex());
+    assertEquals(2, repositoryDatasetDisplay.getSex().size());
+    assertEquals(true, repositoryDatasetDisplay.getSex().contains("Female"));
   }
 
   @Test
   public void setSex() {
     Set<String> expected = new HashSet<String>(Arrays.asList("male"));
+    repositoryDatasetDisplay.setSex(expected);
     Set<String> actual = repositoryDatasetDisplay.getSex();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddDoi() {
-    assertEquals(0, repositoryDatasetDisplay.getDoi().size());
+    assertEquals(1, repositoryDatasetDisplay.getDoi().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addDoi("doi");
 
-    assertEquals(1, repositoryDatasetDisplay.getDoi().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getDoi());
+    assertEquals(2, repositoryDatasetDisplay.getDoi().size());
+    assertEquals(true, repositoryDatasetDisplay.getDoi().contains("doi"));
   }
 
   @Test
   public void setDoi() {
     Set<String> expected = new HashSet<String>(Arrays.asList("doi"));
+    repositoryDatasetDisplay.setDoi(expected);
     Set<String> actual = repositoryDatasetDisplay.getDoi();
     assertEquals(expected, actual);
   }
@@ -170,72 +179,76 @@ public void setDlFileId() {
 
   @Test
   public void testAddProtocol() {
-    assertEquals(0, repositoryDatasetDisplay.getProtocol().size());
+    assertEquals(1, repositoryDatasetDisplay.getProtocol().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addProtocol("protocol");
 
-    assertEquals(1, repositoryDatasetDisplay.getProtocol().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getProtocol());
+    assertEquals(2, repositoryDatasetDisplay.getProtocol().size());
+    assertEquals(true, repositoryDatasetDisplay.getProtocol().contains("protocol"));
   }
 
   @Test
   public void setProtocol() {
     Set<String> expected = new HashSet<String>(Arrays.asList("Protocol"));
+    repositoryDatasetDisplay.setProtocol(expected);
     Set<String> actual = repositoryDatasetDisplay.getProtocol();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddTissueSource() {
-    assertEquals(0, repositoryDatasetDisplay.getTissueSource().size());
+    assertEquals(1, repositoryDatasetDisplay.getTissueSource().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
-    repositoryDatasetDisplay.addTissueSource("tissue_source");
+    repositoryDatasetDisplay.addTissueSource("tissueSource");
 
-    assertEquals(1, repositoryDatasetDisplay.getTissueSource().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getTissueSource());
+    assertEquals(2, repositoryDatasetDisplay.getTissueSource().size());
+    assertEquals(true, repositoryDatasetDisplay.getTissueSource().contains("tissueSource"));
   }
 
   @Test
   public void setTissueSource() {
     Set<String> expected = new HashSet<String>(Arrays.asList("kidneys"));
+    repositoryDatasetDisplay.setTissueSource(expected);
     Set<String> actual = repositoryDatasetDisplay.getTissueSource();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddExperimentalStrategy() {
-    assertEquals(0, repositoryDatasetDisplay.getExperimentalStrategy().size());
+    assertEquals(1, repositoryDatasetDisplay.getExperimentalStrategy().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addExperimentalStrategy("experimental_strategy");
 
-    assertEquals(1, repositoryDatasetDisplay.getExperimentalStrategy().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getExperimentalStrategy());
+    assertEquals(2, repositoryDatasetDisplay.getExperimentalStrategy().size());
+    assertEquals(true, repositoryDatasetDisplay.getExperimentalStrategy().contains("experimental_strategy"));
   }
 
   @Test
   public void setExperimentalStrategy() {
     Set<String> expected = new HashSet<String>(Arrays.asList("experimental strategy"));
+    repositoryDatasetDisplay.setExperimentalStrategy(expected);
     Set<String> actual = repositoryDatasetDisplay.getExperimentalStrategy();
     assertEquals(expected, actual);
   }
 
   @Test
   public void testAddWorkflowType() {
-    assertEquals(0, repositoryDatasetDisplay.getWorkflowType().size());
+    assertEquals(1, repositoryDatasetDisplay.getWorkflowType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addWorkflowType("workflow_type");
 
-    assertEquals(1, repositoryDatasetDisplay.getWorkflowType().size());
-    assertEquals(repositoryDatasetDisplay, repositoryDatasetDisplay.getWorkflowType());
+    assertEquals(2, repositoryDatasetDisplay.getWorkflowType().size());
+    assertEquals(true, repositoryDatasetDisplay.getWorkflowType().contains("workflow_type"));
   }
 
   @Test
   public void setWorkflowType() {
     Set<String> expected = new HashSet<String>(Arrays.asList("workflowType"));
+    repositoryDatasetDisplay.setWorkflowType(expected);
     Set<String> actual = repositoryDatasetDisplay.getWorkflowType();
     assertEquals(expected, actual);
   }
@@ -279,13 +292,15 @@ public void setDlFileId() {
 
   @Test
   public void setParticipantIdSort() {
+    Set<String> redcapIds = new HashSet<String>(Arrays.asList("redcap_id", "redcap_id2"));
+    repositoryDatasetDisplay.setRedcapId(redcapIds);
     repositoryDatasetDisplay.getParticipantIdSort();
     assertEquals("Multiple Participants", repositoryDatasetDisplay.getParticipantIdSort());
   }
 
   @Test
   public void setFileNameSort() {
-    repositoryDatasetDisplay.setFileNameSort("this_file_name_has_thirty_seven_chrs_filename.docx");
+    repositoryDatasetDisplay.setFileName("this_file_name_has_thirty_seven_chrs_filename.docx");
     assertEquals("filename.docx", repositoryDatasetDisplay.getFileNameSort());
   }
 
