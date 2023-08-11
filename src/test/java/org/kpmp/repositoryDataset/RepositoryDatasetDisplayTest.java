@@ -308,6 +308,9 @@ public void setDlFileId() {
   public void setPlatformSort(){
     repositoryDatasetDisplay.getPlatformSort();
     assertEquals("aaaaa", repositoryDatasetDisplay.getPlatformSort());
+
+    repositoryDatasetDisplay.setPlatform("platform");
+    assertEquals("platform", repositoryDatasetDisplay.getPlatformSort());
   }
 }
  
