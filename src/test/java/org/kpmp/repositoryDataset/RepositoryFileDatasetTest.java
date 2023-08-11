@@ -20,18 +20,6 @@ public class RepositoryFileDatasetTest {
         repositoryDataset = null;
     }
 
-    @Test
-    public void setDlFileId() {
-        repositoryDataset.setDlFileId("dl_file_id");
-        assertEquals("dl_file_id", repositoryDataset.getDlFileId());
-    }
-
-    @Test
-    public void setRedcapId() {
-        repositoryDataset.setRedcapId("redcapid");
-        assertEquals("redcapid", repositoryDataset.getRedcapId());
-    }
-
      @Test
     public void setSampleType() {
         repositoryDataset.setSampleType("sample");
@@ -131,7 +119,10 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setReleaseVersion() {
-        repositoryDataset.setReleaseVersion(42);
-        assertEquals(42, repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion("42");
+        assertEquals("42", repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion("Recently Released");
+        assertEquals("Recently Released", repositoryDataset.getReleaseVersion());
     }
+
 }

@@ -20,5 +20,6 @@ public class RepositoryDatasetController {
     @RequestMapping(value = "/api/v1/repository/load-search", method = RequestMethod.GET)
     public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
         return "Successfully added " + repositoryDatasetService.loadEnterpriseSearch().size() + " documents.";
+
     }
 }

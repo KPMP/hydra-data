@@ -8,12 +8,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.IOException;
-
 @Service
 public class RepositoryDatasetService  {
 
@@ -47,6 +47,10 @@ public class RepositoryDatasetService  {
 		}
 	}
 
+    public RepositoryDatasetService() {
+        // So spring doesn't yell at us
+    }
+
 	@Autowired
 	public RepositoryDatasetService(
 		 RepositoryFileDatasetRepository fileRepo, RestTemplate restTemplate, Environment env) {
@@ -55,10 +59,38 @@ public class RepositoryDatasetService  {
 		this.env = env;
 	}
 
-  public List<RepositoryDataset> getRepositoryDataset() throws Exception {
-    List <RepositoryDataset> datasets = new ArrayList<>();
+  public List<RepositoryDatasetDisplay> getRepositoryDataset() throws Exception {
+    List <RepositoryFileDataset> datasets = new ArrayList<>(); 
+    String maxReleaseVersion = fileRepo.max();
     datasets.addAll(fileRepo.findAll());
-    return datasets;
+    Map<String, RepositoryDatasetDisplay> displayFiles = new HashMap<>();
+	for (RepositoryFileDataset repositoryDataset : datasets) {
+        if (displayFiles.containsKey(repositoryDataset.getId().getDlFileId())) {
+            // update all of the list items in that display file
+            RepositoryDatasetDisplay displayFile = displayFiles.get(repositoryDataset.getId().getDlFileId());
+            displayFile.addAgeBinned(repositoryDataset.getAgeBinned());
+            displayFile.addRedCapId(repositoryDataset.getId().getRedcapId());
+            displayFile.addSampleType(repositoryDataset.getSampleType());
+            displayFile.addTissueType(repositoryDataset.getTissueType());
+            displayFile.addSex(repositoryDataset.getSex());
+            displayFile.addProtocol(repositoryDataset.getProtocol());
+            displayFile.addTissueSource(repositoryDataset.getTissueSource());
+            displayFile.addExperimentalStrategy(repositoryDataset.getExperimentalStrategy());
+            displayFile.addWorkflowType(repositoryDataset.getWorkflowType());
+            displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
+        } else {
+            RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
+            
+            if (repositoryDataset.getReleaseVersion() == maxReleaseVersion) {
+			    displayFile.setReleaseVersion("Recently Released"); 
+		    } else {
+			    displayFile.setReleaseVersion(null);
+		    }
+            displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
+        }
+		
+	}
+	return new ArrayList<>(displayFiles.values());
 }
 
 	public List<RepositoryFileDataset> getRepositoryFileDataset() throws IOException, Exception {
@@ -67,7 +99,7 @@ public class RepositoryDatasetService  {
 
 	public List<ESResponse> loadEnterpriseSearch() throws Exception {
 		List<ESResponse> responses = new ArrayList<>();
-		List<RepositoryDataset> datasets = getRepositoryDataset();
+		List<RepositoryDatasetDisplay> datasets = getRepositoryDataset();
 		String token = env.getProperty("ES_API_TOKEN");
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "Bearer "+ token);
@@ -80,7 +112,7 @@ public class RepositoryDatasetService  {
 				endIndex = datasets.size();
 			else
 				endIndex = (i * 100) + 100;
-			List datasetSlice = datasets.subList(beginIndex, endIndex);
+			List<RepositoryDatasetDisplay> datasetSlice = datasets.subList(beginIndex, endIndex);
 			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
 			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
 					entity, ESResponse[].class);

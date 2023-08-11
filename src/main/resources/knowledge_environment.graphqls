@@ -1,34 +1,29 @@
 type Query {
-    repositoryDataset: [RepositoryDataset]
+    repositoryDataset: [RepositoryDatasetDisplay]
 }
 
-type File {
- fileId: ID
- dlFileId: String
- fileName: String
- packageId: String
- fileSize: Float
-}
-
-type RepositoryDataset {
-    dlFileId: String # may be null
-    redcapId: String
-    sampleType: String
-    tissueType: String
-    ageBinned: String
-    sex: String
-    doi: String
+type RepositoryDatasetDisplay {
+    dlFileId: String
+    redcapId: [String]
+    sampleType: [String]
+    tissueType: [String]
+    ageBinned: [String]
+    sex: [String]
+    doi: [String]
     access: String
     platform: String
-    experimentalStrategy: String
+    experimentalStrategy: [String]
     dataCategory: String
-    workflowType: String
+    workflowType: [String]
     dataFormat: String
     dataType: String
-    fileName: String # may be null
-    fileSize: Float # may be null
-    protocol: String # may be null
-    packageId: String # may be null
-    tissueSource: String
-    releaseVersion: Float
+    fileName: String 
+    fileSize: Int
+    protocol: [String] 
+    packageId: String 
+    tissueSource: [String]
+    releaseVersion: String
+    fileNameSort: String
+    participantIdSort: String
+    platformSort: String
 }
