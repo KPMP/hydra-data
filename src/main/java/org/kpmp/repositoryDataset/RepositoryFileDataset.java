@@ -27,7 +27,7 @@ public class RepositoryFileDataset {
     private String protocol;
     private String packageId;
     private String tissueSource;
-    private String releaseVersion;
+    private Double releaseVersion;
 
     public RepositoryFileDatasetId getId() {
         return this.id;
@@ -177,11 +177,11 @@ public class RepositoryFileDataset {
         this.tissueSource = tissueSource;
     }
 
-    public String getReleaseVersion() {
+    public Double getReleaseVersion() {
         return releaseVersion;
     }
 
-    public void setReleaseVersion(String releaseVersion) {
+    public void setReleaseVersion(Double releaseVersion) {
         this.releaseVersion = releaseVersion;
     }
 

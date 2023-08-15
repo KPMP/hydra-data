@@ -119,10 +119,8 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setReleaseVersion() {
-        repositoryDataset.setReleaseVersion("42");
-        assertEquals("42", repositoryDataset.getReleaseVersion());
-        repositoryDataset.setReleaseVersion("Recently Released");
-        assertEquals("Recently Released", repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion(45.0);
+        assertEquals(45.0, repositoryDataset.getReleaseVersion());
     }
 
 }

@@ -14,5 +14,5 @@ public interface RepositoryFileDatasetRepository
     List<RepositoryFileDataset> findAll();
 
     @Query (value = "SELECT MAX(release_version) AS max FROM repo_file_v", nativeQuery = true)
-    public String max();
+    public Double max();
 }
