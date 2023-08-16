@@ -52,7 +52,7 @@ public class QueryTest {
         repositoryFileDataset.setPackageId("package_id");
         repositoryFileDataset.setPlatform("platform");
         repositoryFileDataset.setProtocol("protocol");
-        repositoryFileDataset.setReleaseVersion("9");
+        repositoryFileDataset.setReleaseVersion(9.0);
         repositoryFileDataset.setSampleType("SampleType");
         repositoryFileDataset.setSex("Male");
         repositoryFileDataset.setTissueSource("Kidneys");

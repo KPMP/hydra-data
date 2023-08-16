@@ -61,7 +61,7 @@ public class RepositoryDatasetService  {
 
   public List<RepositoryDatasetDisplay> getRepositoryDataset() throws Exception {
     List <RepositoryFileDataset> datasets = new ArrayList<>(); 
-    String maxReleaseVersion = fileRepo.max();
+    Double maxReleaseVersion = fileRepo.max();
     datasets.addAll(fileRepo.findAll());
     Map<String, RepositoryDatasetDisplay> displayFiles = new HashMap<>();
 	for (RepositoryFileDataset repositoryDataset : datasets) {
@@ -81,7 +81,7 @@ public class RepositoryDatasetService  {
         } else {
             RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
             
-            if (repositoryDataset.getReleaseVersion() == maxReleaseVersion) {
+            if (Double.compare(repositoryDataset.getReleaseVersion(), maxReleaseVersion) == 0) {
 			    displayFile.setReleaseVersion("Recently Released"); 
 		    } else {
 			    displayFile.setReleaseVersion(null);
