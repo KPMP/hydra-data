@@ -3,7 +3,7 @@ package org.kpmp.repositoryDataset;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RepositoryDatasetDisplay {
     private static final int UUID_LENGTH = 37;
@@ -154,18 +154,19 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addSex(String sex) {
-        if(!(sex == null || sex.isEmpty())){
+        if(!sex.isEmpty()){
             this.sex.add(sex);
+            System.out.println("Adding sex:" + this.sex);
         }
         
     }
 
     @JsonProperty("sex")
     public Set<String> getSex() {
-        if (sex.isEmpty()){
+        if(sex.isEmpty()){
             return null;
         }else{
-            return this.sex;
+            return sex;
         }
     }
 
