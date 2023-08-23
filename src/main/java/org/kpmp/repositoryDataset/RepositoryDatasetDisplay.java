@@ -141,7 +141,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("age_binned")
     public Set<String> getAgeBinned() {
-        if(ageBinned.isEmpty()){
+        if(sex.contains("") || sex.contains(null)){
             return null;
         }else{
             return this.ageBinned;
@@ -154,16 +154,15 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addSex(String sex) {
-        if(!sex.isEmpty()){
+        if(!(sex == null || sex.isEmpty())){
             this.sex.add(sex);
-            System.out.println("Adding sex:" + this.sex);
         }
         
     }
 
     @JsonProperty("sex")
     public Set<String> getSex() {
-        if(sex.isEmpty()){
+        if(sex.contains("") || sex.contains(null)){
             return null;
         }else{
             return sex;
@@ -294,7 +293,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("workflow_type")
     public Set<String> getWorkflowType() {
-        if(workflowType.isEmpty()){
+        if(workflowType.contains(null) || workflowType.contains("")){
             return null;
         }else{
             return this.workflowType;
