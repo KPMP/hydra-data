@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class RepositoryDatasetDisplay {
     private static final int UUID_LENGTH = 37;
     private String dlFileId;
@@ -42,17 +41,35 @@ public class RepositoryDatasetDisplay {
         experimentalStrategy = new HashSet<String>();
         workflowType = new HashSet<String>();
         redcapId.add(repositoryFile.getId().getRedcapId());
-        sampleType.add(repositoryFile.getSampleType());
-        tissueType.add(repositoryFile.getTissueType());
-        ageBinned.add(repositoryFile.getAgeBinned());
-        sex.add(repositoryFile.getSex());
-        doi.add(repositoryFile.getDoi());
+        if (shouldAdd(repositoryFile.getSampleType())) {
+            sampleType.add(repositoryFile.getSampleType());
+        }
+        if (shouldAdd(repositoryFile.getTissueType())) {
+            tissueType.add(repositoryFile.getTissueType());
+        }
+        if(shouldAdd(repositoryFile.getAgeBinned())){
+            ageBinned.add(repositoryFile.getAgeBinned());
+        }
+        if(shouldAdd(repositoryFile.getSex())){
+            sex.add(repositoryFile.getSex());
+        }
+        if(shouldAdd(repositoryFile.getDoi())){
+            doi.add(repositoryFile.getDoi());
+        }
+        if(shouldAdd(repositoryFile.getProtocol())){
+            protocol.add(repositoryFile.getProtocol());
+        }
+        if(shouldAdd(repositoryFile.getTissueSource())){
+            tissueSource.add(repositoryFile.getTissueSource());
+        }
+        if(shouldAdd(repositoryFile.getExperimentalStrategy())){
+            experimentalStrategy.add(repositoryFile.getExperimentalStrategy());
+        }
+        if(shouldAdd(repositoryFile.getWorkflowType())){
+            workflowType.add(repositoryFile.getWorkflowType());
+        }
         access = repositoryFile.getAccess();
         platform = repositoryFile.getPlatform();
-        protocol.add(repositoryFile.getProtocol());
-        tissueSource.add(repositoryFile.getTissueSource());
-        experimentalStrategy.add(repositoryFile.getExperimentalStrategy());
-        workflowType.add(repositoryFile.getWorkflowType());
         dataFormat = repositoryFile.getDataFormat();
         dataCategory = repositoryFile.getDataCategory();
         dataType = repositoryFile.getDataType();
@@ -71,10 +88,9 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addRedCapId(String redcapId) {
-        if(!redcapId.isEmpty()){
+        if(redcapId != null && !redcapId.isEmpty()){
             this.redcapId.add(redcapId);
         }
-        
     }
 
     @JsonProperty("redcap_id")
@@ -92,7 +108,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addSampleType(String sampleType) {
-        if(!(sampleType == null || sampleType.isEmpty())){
+        if(sampleType != null && !sampleType.isEmpty()){
             this.sampleType.add(sampleType);
         }
         
@@ -113,7 +129,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addTissueType(String tissueType) {
-        if(!tissueType.isEmpty()){
+        if(tissueType != null && !tissueType.isEmpty()){
             this.tissueType.add(tissueType);
         }
     }
@@ -133,7 +149,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addAgeBinned(String ageBinned) {
-        if(!(ageBinned == null || ageBinned.isEmpty())){
+        if(ageBinned != null && !ageBinned.isEmpty()){
             this.ageBinned.add(ageBinned);
         }
         
@@ -141,7 +157,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("age_binned")
     public Set<String> getAgeBinned() {
-        if(sex.contains("") || sex.contains(null)){
+        if(ageBinned.isEmpty()){
             return null;
         }else{
             return this.ageBinned;
@@ -154,7 +170,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addSex(String sex) {
-        if(!(sex == null || sex.isEmpty())){
+        if(sex != null && !sex.isEmpty()){
             this.sex.add(sex);
         }
         
@@ -162,7 +178,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("sex")
     public Set<String> getSex() {
-        if(sex.contains("") || sex.contains(null)){
+        if(sex.isEmpty()){
             return null;
         }else{
             return sex;
@@ -174,7 +190,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addDoi(String doi) {
-        if (!(doi == null || doi.isEmpty())){
+        if (doi != null && !doi.isEmpty()){
             this.doi.add(doi);
         }
         
@@ -182,7 +198,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("dois")
     public Set<String> getDoi() {
-        if(doi.contains("") || doi.contains(null)){
+        if(doi.isEmpty()){
             return null;
         }else{
             return this.doi;
@@ -222,7 +238,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addProtocol(String protocol) {
-        if(!protocol.isEmpty()){
+        if(protocol != null && !protocol.isEmpty()){
             this.protocol.add(protocol);
         }
 
@@ -243,7 +259,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addTissueSource(String tissueSource) {
-        if(!(tissueSource == null || tissueSource.isEmpty())){
+        if(tissueSource != null && !tissueSource.isEmpty()){
             this.tissueSource.add(tissueSource);
         }
 
@@ -264,7 +280,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addExperimentalStrategy(String experimentalStrategy) {
-        if(!(experimentalStrategy == null || experimentalStrategy.isEmpty())){
+        if(experimentalStrategy != null && !experimentalStrategy.isEmpty()){
             this.experimentalStrategy.add(experimentalStrategy);
         }
    
@@ -285,7 +301,7 @@ public class RepositoryDatasetDisplay {
     }
 
     public void addWorkflowType(String workflowType) {
-        if(!(workflowType == null || workflowType.isEmpty())){
+        if(workflowType != null && !workflowType.isEmpty()){
             this.workflowType.add(workflowType);
         }
 
@@ -293,7 +309,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("workflow_type")
     public Set<String> getWorkflowType() {
-        if(workflowType.contains(null) || workflowType.contains("")){
+        if(workflowType.isEmpty()){
             return null;
         }else{
             return this.workflowType;
@@ -381,6 +397,13 @@ public class RepositoryDatasetDisplay {
     @JsonProperty("platform_sort")
     public String getPlatformSort() {
         return (platform == null) ? "aaaaa" : platform;
+    }
+
+    private boolean shouldAdd(String value) {
+        if (value == null || value.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
 }
