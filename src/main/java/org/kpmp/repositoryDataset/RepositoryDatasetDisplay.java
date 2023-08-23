@@ -182,7 +182,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("dois")
     public Set<String> getDoi() {
-        if(doi.isEmpty()){
+        if(doi.contains("") || doi.contains(null)){
             return null;
         }else{
             return this.doi;
