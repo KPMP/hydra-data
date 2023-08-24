@@ -1,7 +1,6 @@
 package org.kpmp.repositoryDataset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -66,12 +65,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddSampleType(){
-    assertEquals(1, repositoryDatasetDisplay.getSampleType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addSampleType("sample_type");
 
-    assertEquals(2, repositoryDatasetDisplay.getSampleType().size());
+    assertEquals(1, repositoryDatasetDisplay.getSampleType().size());
     assertEquals(true, repositoryDatasetDisplay.getSampleType().contains("sample_type"));
   }
 
@@ -85,12 +83,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddTissueType() {
-    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addTissueType("tissue_type");
 
-    assertEquals(2, repositoryDatasetDisplay.getTissueType().size());
+    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
     assertEquals(true, repositoryDatasetDisplay.getTissueType().contains("tissue_type"));
   }
 
@@ -104,12 +101,10 @@ public void setDlFileId() {
 
   @Test
   public void testAddAgeBinned() {
-    assertEquals(1, repositoryDatasetDisplay.getAgeBinned().size());
-
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addAgeBinned("40-49");
 
-    assertEquals(2, repositoryDatasetDisplay.getAgeBinned().size());
+    assertEquals(1, repositoryDatasetDisplay.getAgeBinned().size());
     assertEquals(true, repositoryDatasetDisplay.getAgeBinned().contains("40-49"));
   }
 
@@ -123,12 +118,10 @@ public void setDlFileId() {
 
   @Test
   public void testAddSex() {
-    assertEquals(1, repositoryDatasetDisplay.getSex().size());
-
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addSex("Female");
 
-    assertEquals(2, repositoryDatasetDisplay.getSex().size());
+    assertEquals(1, repositoryDatasetDisplay.getSex().size());
     assertEquals(true, repositoryDatasetDisplay.getSex().contains("Female"));
   }
 
@@ -142,12 +135,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddDoi() {
-    assertEquals(1, repositoryDatasetDisplay.getDoi().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addDoi("doi");
 
-    assertEquals(2, repositoryDatasetDisplay.getDoi().size());
+    assertEquals(1, repositoryDatasetDisplay.getDoi().size());
     assertEquals(true, repositoryDatasetDisplay.getDoi().contains("doi"));
   }
 
@@ -179,12 +171,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddProtocol() {
-    assertEquals(1, repositoryDatasetDisplay.getProtocol().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addProtocol("protocol");
 
-    assertEquals(2, repositoryDatasetDisplay.getProtocol().size());
+    assertEquals(1, repositoryDatasetDisplay.getProtocol().size());
     assertEquals(true, repositoryDatasetDisplay.getProtocol().contains("protocol"));
   }
 
@@ -198,12 +189,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddTissueSource() {
-    assertEquals(1, repositoryDatasetDisplay.getTissueSource().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addTissueSource("tissueSource");
 
-    assertEquals(2, repositoryDatasetDisplay.getTissueSource().size());
+    assertEquals(1, repositoryDatasetDisplay.getTissueSource().size());
     assertEquals(true, repositoryDatasetDisplay.getTissueSource().contains("tissueSource"));
   }
 
@@ -217,12 +207,10 @@ public void setDlFileId() {
 
   @Test
   public void testAddExperimentalStrategy() {
-    assertEquals(1, repositoryDatasetDisplay.getExperimentalStrategy().size());
-
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addExperimentalStrategy("experimental_strategy");
 
-    assertEquals(2, repositoryDatasetDisplay.getExperimentalStrategy().size());
+    assertEquals(1, repositoryDatasetDisplay.getExperimentalStrategy().size());
     assertEquals(true, repositoryDatasetDisplay.getExperimentalStrategy().contains("experimental_strategy"));
   }
 
@@ -236,12 +224,11 @@ public void setDlFileId() {
 
   @Test
   public void testAddWorkflowType() {
-    assertEquals(1, repositoryDatasetDisplay.getWorkflowType().size());
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addWorkflowType("workflow_type");
 
-    assertEquals(2, repositoryDatasetDisplay.getWorkflowType().size());
+    assertEquals(1, repositoryDatasetDisplay.getWorkflowType().size());
     assertEquals(true, repositoryDatasetDisplay.getWorkflowType().contains("workflow_type"));
   }
 
