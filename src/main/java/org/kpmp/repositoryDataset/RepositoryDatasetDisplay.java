@@ -80,7 +80,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("file_id")
     public String getDlFileId() {
-        return this.dlFileId;
+        if(this.dlFileId == null || this.dlFileId.isEmpty()){
+            return null;
+        }else{
+            return this.dlFileId;
+        }
     }
 
     public void setDlFileId(String dlFileId) {
@@ -212,7 +216,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("access")
     public String getAccess() {
-        return this.access;
+        if(this.access == null || this.access.isEmpty()){
+            return null;
+        }else{
+            return access;
+        }
     }
 
     public void setAccess(String access) {
@@ -221,7 +229,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("platform")
     public String getPlatform() {
-        return this.platform;
+        if(this.platform == null || this.platform.isEmpty()){
+            return null;
+        }else{
+            return this.platform;
+        }
     }
 
     public void setPlatform(String platform) {
@@ -230,7 +242,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("release_version")
     public String getReleaseVersion() {
-        return this.releaseVersion;
+        if(this.releaseVersion == null || this.releaseVersion.isEmpty()){
+            return null;
+        }else{
+            return this.releaseVersion;
+        }
     }
 
     public void setReleaseVersion(String releaseVersion) {
@@ -323,7 +339,12 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("data_format")
     public String getDataFormat() {
-        return this.dataFormat;
+        if(this.dataFormat == null || this.dataFormat.isEmpty()){
+            return null;
+        }else{
+            return this.dataFormat;
+        }
+        
     }
 
     public void setDataFormat(String dataFormat) {
@@ -332,7 +353,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("data_category")
     public String getDataCategory() {
-        return this.dataCategory;
+        if(this.dataCategory == null || this.dataCategory.isEmpty()){
+            return null;
+        }else{
+            return this.dataCategory;
+        }
     }
 
     public void setDataCategory(String dataCategory) {
@@ -341,7 +366,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("data_type")
     public String getDataType() {
-        return this.dataType;
+        if (this.dataType == null || this.dataType.isEmpty()){
+            return null;
+        }else{
+            return this.dataType;
+        }
     }
 
     public void setDataType(String dataType) {
@@ -350,7 +379,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("file_size")
     public Long getFileSize() {
-        return this.fileSize;
+        if(this.fileSize == null){
+            return null;
+        }else{
+            return this.fileSize;
+        }
     }
 
     public void setFileSize(Long fileSize) {
@@ -359,7 +392,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("file_name")
     public String getFileName() {
-        return this.fileName;
+        if(this.fileName == null || this.fileName.isEmpty()){
+            return null;
+        }else{
+            return this.fileName;
+        }
     }
 
     public void setFileName(String fileName) {
@@ -368,7 +405,11 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("package_id")
     public String getPackageId() {
-        return this.packageId;
+        if(this.packageId == null || this.packageId.isEmpty()){
+            return null;
+        }else{
+            return this.packageId;
+        }
     }
 
     public void setPackageId(String packageId) {
@@ -386,8 +427,13 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("file_name_sort")
     public String getFileNameSort() {
-        fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
-        return fileNameSort;
+        if(this.fileName == null || this.fileName.isEmpty()){
+            return null;
+        }else{
+            fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
+            return fileNameSort;
+        }
+        
     }
 
     public void setFileNameSort(String fileNameSort) {
