@@ -27,6 +27,7 @@ public class RepositoryDatasetDisplay {
     private String fileName;
     private String packageId;
     private String fileNameSort;
+    private Set<Integer> metadataTypeId;
 
     public RepositoryDatasetDisplay(RepositoryFileDataset repositoryFile) {
         dlFileId = repositoryFile.getId().getDlFileId();
@@ -40,6 +41,7 @@ public class RepositoryDatasetDisplay {
         tissueSource = new HashSet<String>();
         experimentalStrategy = new HashSet<String>();
         workflowType = new HashSet<String>();
+        metadataTypeId = new HashSet<Integer>();
         redcapId.add(repositoryFile.getId().getRedcapId());
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
@@ -67,6 +69,9 @@ public class RepositoryDatasetDisplay {
         }
         if(shouldAdd(repositoryFile.getWorkflowType())){
             workflowType.add(repositoryFile.getWorkflowType());
+        }
+        if(shouldAddInt(repositoryFile.getMetadataTypeId())){
+            metadataTypeId.add(repositoryFile.getMetadataTypeId());
         }
         access = repositoryFile.getAccess();
         platform = repositoryFile.getPlatform();
@@ -452,4 +457,30 @@ public class RepositoryDatasetDisplay {
         return true;
     }
 
+    private boolean shouldAddInt(Integer valueInt){
+        if(valueInt == null || valueInt == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    @JsonProperty("metadata_type_id")
+    public Set<Integer> getMetadataTypeId(){
+        if(metadataTypeId.isEmpty()){
+            return null;
+        }else{
+            return this.metadataTypeId;
+        }
+    }
+
+    public void setMetadataTypeId(Set<Integer> metadataTypeId){
+        this.metadataTypeId = metadataTypeId;
+    }
+
+    public void addMetadataTypeId(Integer metadataTypeId) {
+        if(metadataTypeId != null){
+            this.metadataTypeId.add(metadataTypeId);
+        }
+        
+    }
 }

@@ -123,4 +123,10 @@ public class RepositoryFileDatasetTest {
         assertEquals(45.0, repositoryDataset.getReleaseVersion());
     }
 
+    @Test
+    public void setMetadataTypeId(){
+        repositoryDataset.setMetadataTypeId(90);
+        assertEquals(90, repositoryDataset.getMetadataTypeId());
+    }
+
 }

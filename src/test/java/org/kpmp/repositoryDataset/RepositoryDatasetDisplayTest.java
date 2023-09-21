@@ -299,5 +299,22 @@ public void setDlFileId() {
     repositoryDatasetDisplay.setPlatform("platform");
     assertEquals("platform", repositoryDatasetDisplay.getPlatformSort());
   }
+
+  @Test
+  public void setMetadataTypeId() {
+    Set<Integer> metadataTypeIds = new HashSet<Integer>(Arrays.asList(1,2,3,4,5));
+    repositoryDatasetDisplay.setMetadataTypeId(metadataTypeIds);
+    assertEquals(metadataTypeIds, repositoryDatasetDisplay.getMetadataTypeId());
+  }
+
+  @Test
+  public void testAddMetadataTypeId() {
+
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addMetadataTypeId(90);
+
+    assertEquals(1, repositoryDatasetDisplay.getMetadataTypeId().size());
+    assertEquals(true, repositoryDatasetDisplay.getMetadataTypeId().contains(90));
+  }
 }
  

@@ -28,6 +28,7 @@ public class RepositoryFileDataset {
     private String packageId;
     private String tissueSource;
     private Double releaseVersion;
+    private Integer metadataTypeId;
 
     public RepositoryFileDatasetId getId() {
         return this.id;
@@ -183,6 +184,14 @@ public class RepositoryFileDataset {
 
     public void setReleaseVersion(Double releaseVersion) {
         this.releaseVersion = releaseVersion;
+    }
+
+    public int getMetadataTypeId(){
+        return metadataTypeId;
+    }
+
+    public void setMetadataTypeId(Integer metadataTypeId){
+        this.metadataTypeId = metadataTypeId;
     }
 
 }
