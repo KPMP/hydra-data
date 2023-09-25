@@ -1,5 +1,5 @@
-# hubble-data
-The service-layer for the KPMP Atlas Spatial Viewer
+# hydra-data
+The service-layer for the KPMP Atlas Repository
 
 # Test
 
