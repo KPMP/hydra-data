@@ -1,0 +1,29 @@
+type Query {
+    repositoryDataset: [RepositoryDatasetDisplay]
+}
+
+type RepositoryDatasetDisplay {
+    dlFileId: String
+    redcapId: [String]
+    sampleType: [String]
+    tissueType: [String]
+    ageBinned: [String]
+    sex: [String]
+    doi: [String]
+    access: String
+    platform: String
+    experimentalStrategy: [String]
+    dataCategory: String
+    workflowType: [String]
+    dataFormat: String
+    dataType: String
+    fileName: String 
+    fileSize: Int
+    protocol: [String] 
+    packageId: String 
+    tissueSource: [String]
+    releaseVersion: String
+    fileNameSort: String
+    participantIdSort: String
+    platformSort: String
+}
