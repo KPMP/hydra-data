@@ -153,8 +153,8 @@ public void setDlFileId() {
 
   @Test
   public void setAccess(){
-    repositoryDatasetDisplay.addAccess("controlled");
-    assertEquals(new HashSet<>(Arrays.asList("controlled")), repositoryDatasetDisplay.getAccess());
+    repositoryDatasetDisplay.setAccess("controlled");
+    assertEquals("controlled", repositoryDatasetDisplay.getAccess());
   }
 
   @Test

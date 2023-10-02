@@ -13,7 +13,7 @@ public class RepositoryDatasetDisplay {
     private Set<String> ageBinned;
     private Set<String> sex;
     private Set<String> doi;
-    private Set<String> access;
+    private String access;
     private String platform;
     private String releaseVersion;
     private Set<String> protocol;
@@ -40,7 +40,6 @@ public class RepositoryDatasetDisplay {
         tissueSource = new HashSet<String>();
         experimentalStrategy = new HashSet<String>();
         workflowType = new HashSet<String>();
-        access = new HashSet<String>();
         redcapId.add(repositoryFile.getId().getRedcapId());
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
@@ -69,9 +68,7 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getWorkflowType())){
             workflowType.add(repositoryFile.getWorkflowType());
         }
-        if (shouldAdd(repositoryFile.getAccess())) {
-            access.add(repositoryFile.getAccess());
-        }
+        access = repositoryFile.getAccess();
         dataFormat = repositoryFile.getDataFormat();
         platform = repositoryFile.getPlatform();
         dataCategory = repositoryFile.getDataCategory();
@@ -218,7 +215,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("access")
-    public Set<String> getAccess() {
+    public String getAccess() {
         if(this.access == null || this.access.isEmpty()){
             return null;
         }else{
@@ -226,10 +223,8 @@ public class RepositoryDatasetDisplay {
         }
     }
 
-    public void addAccess(String access) {
-        if (access != null && !access.isEmpty()) {
-            this.access.add(access);
-        }
+    public void setAccess(String access) {
+        this.access = access;
     }
 
     @JsonProperty("platform")
