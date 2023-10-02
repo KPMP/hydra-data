@@ -8,6 +8,7 @@ import javax.persistence.Embeddable;
 public class RepositoryFileDatasetId implements Serializable{
     private String dlFileId;
     private String redcapId;
+    private String experimentalStrategy;
 
     @Column(name = "dl_file_id")
     public String getDlFileId() {
@@ -26,4 +27,11 @@ public class RepositoryFileDatasetId implements Serializable{
         this.redcapId = redcapId;
     }
 
+    public String getExperimentalStrategy() {
+        return this.experimentalStrategy;
+    }
+
+    public void setExperimentalStrategy(String experimentalStrategy) {
+        this.experimentalStrategy = experimentalStrategy;
+    }
 }

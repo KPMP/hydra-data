@@ -75,8 +75,9 @@ public class RepositoryDatasetService  {
             displayFile.addSex(repositoryDataset.getSex());
             displayFile.addProtocol(repositoryDataset.getProtocol());
             displayFile.addTissueSource(repositoryDataset.getTissueSource());
-            displayFile.addExperimentalStrategy(repositoryDataset.getExperimentalStrategy());
+            displayFile.addExperimentalStrategy(repositoryDataset.getId().getExperimentalStrategy());
             displayFile.addWorkflowType(repositoryDataset.getWorkflowType());
+			displayFile.addAccess(repositoryDataset.getAccess());
             displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
         } else {
             RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
