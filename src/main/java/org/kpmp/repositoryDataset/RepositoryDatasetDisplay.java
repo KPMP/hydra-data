@@ -62,15 +62,15 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getTissueSource())){
             tissueSource.add(repositoryFile.getTissueSource());
         }
-        if(shouldAdd(repositoryFile.getExperimentalStrategy())){
-            experimentalStrategy.add(repositoryFile.getExperimentalStrategy());
+        if(shouldAdd(repositoryFile.getId().getExperimentalStrategy())){
+            experimentalStrategy.add(repositoryFile.getId().getExperimentalStrategy());
         }
         if(shouldAdd(repositoryFile.getWorkflowType())){
             workflowType.add(repositoryFile.getWorkflowType());
         }
         access = repositoryFile.getAccess();
-        platform = repositoryFile.getPlatform();
         dataFormat = repositoryFile.getDataFormat();
+        platform = repositoryFile.getPlatform();
         dataCategory = repositoryFile.getDataCategory();
         dataType = repositoryFile.getDataType();
         fileSize = repositoryFile.getFileSize();
