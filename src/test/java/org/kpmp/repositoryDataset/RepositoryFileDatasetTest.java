@@ -63,12 +63,6 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setExperimentalStrategy() {
-        repositoryDataset.setExperimentalStrategy("strategy");
-        assertEquals("strategy", repositoryDataset.getExperimentalStrategy());
-    }
-
-    @Test
     public void setDataCategory() {
         repositoryDataset.setDataCategory("category");
         assertEquals("category", repositoryDataset.getDataCategory());
