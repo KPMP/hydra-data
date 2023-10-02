@@ -85,26 +85,4 @@ public class RepositoryDatasetServiceTest {
 		service.loadEnterpriseSearch();
 		verify(restTemplate).postForObject("host/api/as/v1/engines/search-engine/documents", entity, RepositoryDatasetService.ESResponse[].class);
 	}
-
-	// @Test
-	// public void testGetRepositoryDataset_duplicateFile() throws Exception {
-	// 	when(fileRepo.max()).thenReturn(11d);
-	// 	RepositoryFileDatasetId fileId = mock(RepositoryFileDatasetId.class);
-	// 	when(fileId.getDlFileId()).thenReturn("124");
-	// 	RepositoryFileDataset file1 = mock(RepositoryFileDataset.class);
-	// 	when(file1.getAccess()).thenReturn("1");
-	// 	when(file1.getId()).thenReturn(fileId);
-	// 	when(file1.getExperimentalStrategy()).thenReturn("strat1");
-	// 	RepositoryFileDataset file2 = mock(RepositoryFileDataset.class);
-	// 	when(file2.getId()).thenReturn(fileId);
-	// 	when(file2.getAccess()).thenReturn("2");
-	// 	when(file2.getExperimentalStrategy()).thenReturn("strat2");
-	// 	when(fileRepo.findAll()).thenReturn(Arrays.asList(file1, file2));
-
-	// 	List<RepositoryDatasetDisplay> result = service.getRepositoryDataset();
-		
-	// 	assertEquals(1, result.size());
-	// 	assertEquals(new HashSet<>(Arrays.asList("1", "2")), result.get(0).getAccess());
-	// 	assertEquals(new HashSet<>(Arrays.asList("strat1", "strat2")), result.get(0).getExperimentalStrategy());
-	// }
 }

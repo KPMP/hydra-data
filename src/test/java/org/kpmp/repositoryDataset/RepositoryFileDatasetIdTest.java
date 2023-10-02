@@ -28,4 +28,10 @@ public class RepositoryFileDatasetIdTest {
         repositoryFileDatasetId.setRedcapId("redcap_id");
         assertEquals("redcap_id", repositoryFileDatasetId.getRedcapId());
     }
+
+    @Test
+    public void setExperimentalStrategy() {
+        repositoryFileDatasetId.setExperimentalStrategy("stuff");
+        assertEquals("stuff", repositoryFileDatasetId.getExperimentalStrategy());
+    }
 }
