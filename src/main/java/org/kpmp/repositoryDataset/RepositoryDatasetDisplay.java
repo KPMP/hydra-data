@@ -63,8 +63,8 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getTissueSource())){
             tissueSource.add(repositoryFile.getTissueSource());
         }
-        if(shouldAdd(repositoryFile.getExperimentalStrategy())){
-            experimentalStrategy.add(repositoryFile.getExperimentalStrategy());
+        if(shouldAdd(repositoryFile.getId().getExperimentalStrategy())){
+            experimentalStrategy.add(repositoryFile.getId().getExperimentalStrategy());
         }
         if(shouldAdd(repositoryFile.getWorkflowType())){
             workflowType.add(repositoryFile.getWorkflowType());

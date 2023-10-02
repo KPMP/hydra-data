@@ -17,7 +17,6 @@ public class RepositoryFileDataset {
     private String doi;
     private String access;
     private String platform;
-    private String experimentalStrategy;
     private String dataCategory;
     private String workflowType;
     private String dataFormat;
@@ -95,14 +94,6 @@ public class RepositoryFileDataset {
 
     public void setPlatform(String platform) {
         this.platform = platform;
-    }
-
-    public String getExperimentalStrategy() {
-        return experimentalStrategy;
-    }
-
-    public void setExperimentalStrategy(String experimentalStrategy) {
-        this.experimentalStrategy = experimentalStrategy;
     }
 
     public String getDataCategory() {
