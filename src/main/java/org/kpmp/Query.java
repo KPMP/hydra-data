@@ -15,9 +15,7 @@ public class Query implements GraphQLQueryResolver {
 	private RepositoryDatasetService repositoryDatasetService;
 
 	@Autowired
-	public Query(
-		RepositoryDatasetService repositoryDatasetService
-	) {
+	public Query(RepositoryDatasetService repositoryDatasetService) {
 		this.repositoryDatasetService = repositoryDatasetService;
 	}
 

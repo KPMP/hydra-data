@@ -6,15 +6,19 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
-@Service
+
+@Component
 public class RepositoryDatasetService  {
 
 	@Value("${enterprise-search.host}")
@@ -28,7 +32,7 @@ public class RepositoryDatasetService  {
 
 	public static class ESResponse {
 		String id;
-		List errors;
+		List<String> errors;
 
 		public String getId() {
 			return id;
@@ -38,22 +42,17 @@ public class RepositoryDatasetService  {
 			this.id = id;
 		}
 
-		public List getErrors() {
+		public List<String> getErrors() {
 			return errors;
 		}
 
-		public void setErrors(List errors) {
+		public void setErrors(List<String> errors) {
 			this.errors = errors;
 		}
 	}
 
-    public RepositoryDatasetService() {
-        // So spring doesn't yell at us
-    }
-
 	@Autowired
-	public RepositoryDatasetService(
-		 RepositoryFileDatasetRepository fileRepo, RestTemplate restTemplate, Environment env) {
+	public RepositoryDatasetService(RepositoryFileDatasetRepository fileRepo, RestTemplate restTemplate, Environment env) {
 		this.fileRepo = fileRepo;
 		this.restTemplate = restTemplate;
 		this.env = env;
@@ -99,27 +98,37 @@ public class RepositoryDatasetService  {
 	}
 
 	public List<ESResponse> loadEnterpriseSearch() throws Exception {
+		
 		List<ESResponse> responses = new ArrayList<>();
 		List<RepositoryDatasetDisplay> datasets = getRepositoryDataset();
 		String token = env.getProperty("ES_API_TOKEN");
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "Bearer "+ token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Access-Control-Allow-Origin", "*");
 		int chunks = (int) Math.ceil((double) datasets.size() / 100.00);
 		for (int i = 0; i < chunks; i++) {
 			int beginIndex = i * 100;
 			int endIndex;
-			if (i == chunks - 1)
+			if (i == chunks - 1) {
 				endIndex = datasets.size();
-			else
+			}
+			else {
 				endIndex = (i * 100) + 100;
+			}
 			List<RepositoryDatasetDisplay> datasetSlice = datasets.subList(beginIndex, endIndex);
-			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
-			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
-					entity, ESResponse[].class);
+			ObjectMapper objectMapper = new ObjectMapper();
+    		String jsonArray = objectMapper.writeValueAsString(datasetSlice);
+
+			HttpEntity<Object> entity = new HttpEntity<>(jsonArray, headers);
+			String uri = enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents";
+			ESResponse[] response = restTemplate.postForObject(uri, entity, ESResponse[].class);
 			Collections.addAll(responses, response);
 		}
 		return responses;
 	}
+
+	
+
 
 }

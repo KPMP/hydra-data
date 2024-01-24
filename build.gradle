@@ -3,15 +3,17 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.3")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.2")
     }
 }
 
 plugins {
-    id 'com.palantir.docker' version '0.22.1'
+    id 'com.palantir.docker' version '0.35.0'
+    id 'org.springframework.boot' version '3.2.2'
 }
-
+	
 group = 'kingstonduo'
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -19,30 +21,29 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-jar {
-    baseName='hydra-data'
-    version= '1.0.0'
-}
+
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.18'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.18'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.18'
-    testImplementation 'org.springframework:spring-test:5.2.25.RELEASE'
-    implementation 'mysql:mysql-connector-java:8.0.15'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.mysql:mysql-connector-j:8.3.0'
+
     implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
     implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
     implementation 'com.graphql-java:graphql-java-tools:5.2.4'
-    testImplementation 'org.mockito:mockito-core'
-    implementation 'org.springframework.boot:spring-boot-starter-cache:2.7.18'
+    
     testImplementation('org.mockito:mockito-junit-jupiter:3.12.4')
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework:spring-test:5.2.25.RELEASE'
+    testImplementation 'org.mockito:mockito-core'
 }
 
 springBoot {
@@ -56,7 +57,7 @@ task unpack(type: Copy) {
 }
 
 docker {
-    name "${project.group}/${jar.baseName}:latest"
+    name "${project.group}/hydra-data:latest"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }

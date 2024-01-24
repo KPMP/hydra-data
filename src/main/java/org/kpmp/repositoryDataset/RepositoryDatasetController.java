@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class RepositoryDatasetController {
@@ -18,8 +17,7 @@ public class RepositoryDatasetController {
     }
 
     @RequestMapping(value = "/api/v1/repository/load-search", method = RequestMethod.GET)
-    public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
+    public @ResponseBody String loadSearch() throws Exception {
         return "Successfully added " + repositoryDatasetService.loadEnterpriseSearch().size() + " documents.";
-
     }
 }
