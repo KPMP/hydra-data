@@ -2,8 +2,6 @@ name: Build hydra-data docker image
 
 on:
   push:
-    branches:
-      - KPMP-5100_build-image-with-gradle
 
 jobs:
   build-gradle-project:
