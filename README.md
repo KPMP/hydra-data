@@ -41,3 +41,7 @@ If you have having troubles seeing changes during development, you can try to cl
 4. SSH to the appropriate KE machine
 5. Execute:
     `curl -X GET http://localhost:3050/api/v1/repository/load-search`
+
+# Pushing images to Docker
+This repository is equipped to build and push an image to docker hub when pushing to this github repository. However, the image will be named whatever is specified in the `build.gradle` file.
+So everytime a new branch is made, a new tag should be commited to distinguish between images on Docker Hub.
