@@ -2,6 +2,8 @@ name: Build hydra-data docker image
 
 on:
   push:
+    branches:
+      - KPMP-5100_build-image-with-gradle
 
 jobs:
   build-gradle-project:
@@ -18,4 +20,6 @@ jobs:
       with:
         gradle-version: 8.5
     - name: Run build with Gradle Wrapper
-      run: ./gradlew build docker
+      run: |
+        ./gradlew build docker
+        docker push kingstonduo/hydra-data:github-actions-build
