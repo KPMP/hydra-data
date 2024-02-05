@@ -1,7 +1,7 @@
 name: Build hydra-data docker image
 
 on:
-  push:
+  pull_request:
     branches-ignore:
       - develop
       - master
