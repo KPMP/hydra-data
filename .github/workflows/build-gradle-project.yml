@@ -2,7 +2,7 @@ name: Build hydra-data docker image
 
 on:
   push:
-    branches:
+    branches-ignore:
       - develop
       - master
 
@@ -10,24 +10,24 @@ jobs:
   build-gradle-project:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout project sources
-      uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
-      with:
-        java-version: '21'
-        distribution: 'oracle'
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 8.5
+      - name: Checkout project sources
+        uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'oracle'
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 8.5
 
-    - name: Login to Docker Hub
-      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-      with:
-        username: ${{ secrets.ENV_DOCKER_USER }}
-        password: ${{ secrets.ENV_DOCKER_PASS }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.ENV_DOCKER_USER }}
+          password: ${{ secrets.ENV_DOCKER_PASS }}
 
-    - name: Run build with Gradle Wrapper
-      run: |
-        ./gradlew build docker
-        docker push kingstonduo/hydra-data:latest
+      - name: Run build with Gradle Wrapper
+        run: |
+          ./gradlew build docker
+          docker push kingstonduo/hydra-data:latest
