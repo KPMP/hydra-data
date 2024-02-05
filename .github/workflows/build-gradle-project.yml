@@ -2,7 +2,6 @@ name: Build hydra-data docker image
 
 on: 
   push:
-  pull_request:
 
 jobs:
   build-gradle-project:
