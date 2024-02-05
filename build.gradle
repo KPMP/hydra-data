@@ -14,6 +14,20 @@ plugins {
 	
 group = 'kingstonduo'
 
+def getCurrentGitBranch() {
+    def gitBranch = "Unknown branch"
+    try {
+        def workingDir = new File("${project.projectDir}")
+        def result = 'git rev-parse --abbrev-ref HEAD'.execute(null, workingDir)
+        result.waitFor()
+        if (result.exitValue() == 0) {
+            gitBranch = result.text.trim()
+        }
+    } catch (e) {
+    }
+    return gitBranch
+}
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -56,8 +70,11 @@ task unpack(type: Copy) {
     into("build/dependency")
 }
 
+
+
+
 docker {
-    name "${project.group}/hydra-data:latest"
+    name "${project.group}/hydra-data:" + getCurrentGitBranch()
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
