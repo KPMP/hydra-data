@@ -1,10 +1,11 @@
 name: Build hydra-data docker image
 
-on:
+on: 
   push:
+  pull_request:
     branches-ignore:
-      - develop
       - master
+      - develop
 
 jobs:
   build-gradle-project:
