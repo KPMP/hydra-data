@@ -30,4 +30,4 @@ jobs:
     - name: Run build with Gradle Wrapper
       run: |
         ./gradlew build docker
-        docker push kingstonduo/hydra-data:gradlew-build
+        docker push kingstonduo/hydra-data:latest
