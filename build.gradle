@@ -57,7 +57,7 @@ task unpack(type: Copy) {
 }
 
 docker {
-    name "${project.group}/hydra-data:latest"
+    name "${project.group}/hydra-data:gradlew-build"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
