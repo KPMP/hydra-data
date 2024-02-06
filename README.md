@@ -41,3 +41,6 @@ If you have having troubles seeing changes during development, you can try to cl
 4. SSH to the appropriate KE machine
 5. Execute:
     `curl -X GET http://localhost:3050/api/v1/repository/load-search`
+
+# Pushing images to Docker
+This repository is equipped to build and push an image to docker hub when pushing to the repository (except for master and develop). The image will be named `kingstonduo/hydra-data:<git-branch-name>`
