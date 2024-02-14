@@ -1,0 +1,6 @@
+.*
+*.iml
+gradle
+src
+build/*
+!build/docker
