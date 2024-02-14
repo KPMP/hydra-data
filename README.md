@@ -13,6 +13,9 @@ If you have having troubles seeing changes during development, you can try to cl
 # Build
 
 `./gradlew build docker`
+The default tag is the github branch if no verison is provided
+To pass a version when building the docker image execute
+`./gradlew build docker -Ptag=<tagNumber>`
 
 # Restart Spring
 
