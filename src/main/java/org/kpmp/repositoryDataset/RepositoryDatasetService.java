@@ -26,6 +26,8 @@ public class RepositoryDatasetService  {
 	@Value("${enterprise-search.engine.name}")
 	private String enterpriseSearchEngineName;
 	private RepositoryFileDatasetRepository fileRepo;
+	@Value("${recently-released-date}")
+	private String recentlyReleasedDate;
 
 	private RestTemplate restTemplate;
 	private Environment env;
@@ -82,7 +84,7 @@ public class RepositoryDatasetService  {
             RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
             
             if (Double.compare(repositoryDataset.getReleaseVersion(), maxReleaseVersion) == 0) {
-			    displayFile.setReleaseVersion("Recently Released"); 
+			    displayFile.setReleaseVersion("Recently Released - " + recentlyReleasedDate); 
 		    } else {
 			    displayFile.setReleaseVersion(null);
 		    }
