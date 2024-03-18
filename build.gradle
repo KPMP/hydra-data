@@ -12,8 +12,8 @@ plugins {
     id 'org.springframework.boot' version '3.2.2'
 }
 	
-group = 'kingstonduo'
-version=1.2
+group='kingstonduo'
+version='1.2'
 
 
 apply plugin: 'java'
@@ -82,7 +82,7 @@ def getCurrentGitBranch() {
 
 
 docker {
-    name "${project.group}/hydra-data:" + getCurrentGitBranch()
+    name "kingstonduo/hydra-data:" + getCurrentGitBranch()
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
