@@ -1,8 +1,6 @@
 package org.kpmp.repositoryDataset;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.lang.Nullable;
 
 @Entity
