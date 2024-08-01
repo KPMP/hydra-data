@@ -1,6 +1,7 @@
 package org.kpmp.repositoryDataset;
 
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -38,7 +39,7 @@ public class RepositoryDatasetDisplay {
         doi = new HashSet<String>();
         protocol = new HashSet<String>();
         tissueSource = new HashSet<String>();
-        experimentalStrategy = new HashSet<String>();
+        experimentalStrategy = new TreeSet<String>();
         workflowType = new HashSet<String>();
         redcapId.add(repositoryFile.getId().getRedcapId());
         if (shouldAdd(repositoryFile.getSampleType())) {
