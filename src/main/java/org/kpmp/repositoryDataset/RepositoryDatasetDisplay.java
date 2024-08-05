@@ -426,6 +426,11 @@ public class RepositoryDatasetDisplay {
         }
     }
 
+    @JsonProperty("experimental_strategy_sort")
+    public String getExperimentalStrategySort() {
+        return String.join(",", experimentalStrategy);
+    }
+
     @JsonProperty("file_name_sort")
     public String getFileNameSort() {
         if(this.fileName == null || this.fileName.isEmpty()){
