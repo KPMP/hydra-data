@@ -12,7 +12,6 @@ public class RepositoryFileDataset {
     private String tissueType;
     private String ageBinned;
     private String sex;
-    private String doi;
     private String access;
     private String platform;
     private String dataCategory;
@@ -66,16 +65,6 @@ public class RepositoryFileDataset {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    @Nullable
-
-    public String getDoi() {
-        return doi;
-    }
-
-    public void setDoi(String doi) {
-        this.doi = doi;
     }
 
     public String getAccess() {

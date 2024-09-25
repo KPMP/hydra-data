@@ -54,8 +54,8 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getSex())){
             sex.add(repositoryFile.getSex());
         }
-        if(shouldAdd(repositoryFile.getDoi())){
-            doi.add(repositoryFile.getDoi());
+        if(shouldAdd(repositoryFile.getId().getDoi())){
+            doi.add(repositoryFile.getId().getDoi());
         }
         if(shouldAdd(repositoryFile.getProtocol())){
             protocol.add(repositoryFile.getProtocol());
