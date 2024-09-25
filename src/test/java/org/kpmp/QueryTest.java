@@ -45,7 +45,6 @@ public class QueryTest {
         repositoryFileDataset.setDataCategory("data_category");
         repositoryFileDataset.setDataFormat(".xlsx");
         repositoryFileDataset.setDataType("dataType");
-        repositoryFileDataset.setDoi("doi");
         repositoryFileDataset.setFileName("Filename.xlsx");
         repositoryFileDataset.setFileSize(size);
         repositoryFileDataset.setPackageId("package_id");
