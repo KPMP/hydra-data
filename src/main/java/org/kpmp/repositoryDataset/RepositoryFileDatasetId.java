@@ -9,6 +9,7 @@ public class RepositoryFileDatasetId implements Serializable{
     private String dlFileId;
     private String redcapId;
     private String experimentalStrategy;
+    private String doi;
 
     @Column(name = "dl_file_id")
     public String getDlFileId() {
@@ -33,5 +34,15 @@ public class RepositoryFileDatasetId implements Serializable{
 
     public void setExperimentalStrategy(String experimentalStrategy) {
         this.experimentalStrategy = experimentalStrategy;
+    }
+
+    public String getDoi() {
+        return this.doi;
+    }
+
+    public void setDoi(String doi) {
+        if (doi != null && !doi.isEmpty()){
+            this.doi = doi;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package org.kpmp.repositoryDataset;
 
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -38,7 +39,7 @@ public class RepositoryDatasetDisplay {
         doi = new HashSet<String>();
         protocol = new HashSet<String>();
         tissueSource = new HashSet<String>();
-        experimentalStrategy = new HashSet<String>();
+        experimentalStrategy = new TreeSet<String>();
         workflowType = new HashSet<String>();
         redcapId.add(repositoryFile.getId().getRedcapId());
         if (shouldAdd(repositoryFile.getSampleType())) {
@@ -53,8 +54,8 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getSex())){
             sex.add(repositoryFile.getSex());
         }
-        if(shouldAdd(repositoryFile.getDoi())){
-            doi.add(repositoryFile.getDoi());
+        if(shouldAdd(repositoryFile.getId().getDoi())){
+            doi.add(repositoryFile.getId().getDoi());
         }
         if(shouldAdd(repositoryFile.getProtocol())){
             protocol.add(repositoryFile.getProtocol());
@@ -423,6 +424,11 @@ public class RepositoryDatasetDisplay {
         } else {
             return "Multiple Participants";
         }
+    }
+
+    @JsonProperty("experimental_strategy_sort")
+    public String getExperimentalStrategySort() {
+        return String.join(",", experimentalStrategy);
     }
 
     @JsonProperty("file_name_sort")

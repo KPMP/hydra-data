@@ -45,12 +45,6 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setDoi() {
-        repositoryDataset.setDoi("doi_text");
-        assertEquals("doi_text", repositoryDataset.getDoi());
-    }
-
-    @Test
     public void setAccess() {
         repositoryDataset.setAccess("open");
         assertEquals("open", repositoryDataset.getAccess());

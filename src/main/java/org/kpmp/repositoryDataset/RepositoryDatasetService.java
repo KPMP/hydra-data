@@ -77,6 +77,7 @@ public class RepositoryDatasetService  {
             displayFile.addProtocol(repositoryDataset.getProtocol());
             displayFile.addTissueSource(repositoryDataset.getTissueSource());
             displayFile.addExperimentalStrategy(repositoryDataset.getId().getExperimentalStrategy());
+			displayFile.addDoi(repositoryDataset.getId().getDoi());
             displayFile.addWorkflowType(repositoryDataset.getWorkflowType());
 			displayFile.setAccess(repositoryDataset.getAccess());
             displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
