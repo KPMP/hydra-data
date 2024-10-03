@@ -12,7 +12,7 @@ Just a place to keep track of things that have changed in the code that we may w
 
 ----
 
-## Release 1.5 
+## Release 1.5 (10/3/2024)
 Brief summary of what's in this release:
 - Sorting improvements for Experimental Strategy
 
