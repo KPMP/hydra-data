@@ -36,7 +36,7 @@ public class RepositoryDatasetDisplay {
         tissueType = new HashSet<String>();
         ageBinned = new HashSet<String>();
         sex = new HashSet<String>();
-        doi = new HashSet<String>();
+        doi = new TreeSet<String>();
         protocol = new HashSet<String>();
         tissueSource = new HashSet<String>();
         experimentalStrategy = new TreeSet<String>();
@@ -440,6 +440,11 @@ public class RepositoryDatasetDisplay {
             return fileNameSort;
         }
         
+    }
+
+    @JsonProperty("doi_sort")
+    public String getDoiStrategySort() {
+        return String.join(",", doi);
     }
 
     public void setFileNameSort(String fileNameSort) {
