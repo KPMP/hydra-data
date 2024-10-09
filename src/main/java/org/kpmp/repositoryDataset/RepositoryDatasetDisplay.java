@@ -453,7 +453,7 @@ public class RepositoryDatasetDisplay {
 
     @JsonProperty("platform_sort")
     public String getPlatformSort() {
-        return (platform == null) ? "aaaaa" : platform;
+        return (platform == null || platform.isEmpty()) ? "aaaaa" : platform.toUpperCase();
     }
 
     private boolean shouldAdd(String value) {
