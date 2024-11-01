@@ -27,9 +27,9 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setTissueType() {
-        repositoryDataset.setTissueType("ttype");
-        assertEquals("ttype", repositoryDataset.getTissueType());
+    public void setEnrollmentCategory() {
+        repositoryDataset.setEnrollmentCategory("ttype");
+        assertEquals("ttype", repositoryDataset.getEnrollmentCategory());
     }
 
     @Test

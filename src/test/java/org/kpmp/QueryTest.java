@@ -54,7 +54,7 @@ public class QueryTest {
         repositoryFileDataset.setSampleType("SampleType");
         repositoryFileDataset.setSex("Male");
         repositoryFileDataset.setTissueSource("Kidneys");
-        repositoryFileDataset.setTissueType("organic");
+        repositoryFileDataset.setEnrollmentCategory("organic");
         repositoryFileDataset.setWorkflowType("workflowType");
         repositoryFileDatasetId.setDlFileId("dlFileId");
         repositoryFileDataset.setId(repositoryFileDatasetId);

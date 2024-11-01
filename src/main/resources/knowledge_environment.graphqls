@@ -6,7 +6,7 @@ type RepositoryDatasetDisplay {
     dlFileId: String
     redcapId: [String]
     sampleType: [String]
-    tissueType: [String]
+    enrollmentCategory: [String]
     ageBinned: [String]
     sex: [String]
     doi: [String]
