@@ -91,8 +91,8 @@ public void setDlFileId() {
   @Test
   public void setenrollmentCategory() {
     Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
-    repositoryDatasetDisplay.setenrollmentCategory(expected);
-    Set<String> actual = repositoryDatasetDisplay.getenrollmentCategory();
+    repositoryDatasetDisplay.setEnrollmentCategory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getEnrollmentCategory();
     assertEquals(1, repositoryDatasetDisplay.getEnrollmentCategory().size());
     assertEquals(true, repositoryDatasetDisplay.getEnrollmentCategory().contains("enrollment_category"));
   }
