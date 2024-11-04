@@ -55,11 +55,11 @@ public class RepositoryFileDataset {
         this.sampleType = sampleType;
     }
 
-    public String getenrollmentCategory() {
+    public String getEnrollmentCategory() {
         return enrollmentCategory;
     }
 
-    public void setenrollmentCategory(String enrollmentCategory) {
+    public void setEnrollmentCategory(String enrollmentCategory) {
         this.enrollmentCategory = enrollmentCategory;
     }
 

@@ -1,7 +1,12 @@
 package org.kpmp.repositoryDataset;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+
+import org.apache.commons.text.WordUtils;
+
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -57,8 +62,8 @@ public class RepositoryDatasetDisplay {
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
         }
-        if (shouldAdd(repositoryFile.getenrollmentCategory())) {
-            enrollmentCategory.add(repositoryFile.getenrollmentCategory());
+        if (shouldAdd(repositoryFile.getEnrollmentCategory())) {
+            enrollmentCategory.add(repositoryFile.getEnrollmentCategory());
         }
         if(shouldAdd(repositoryFile.getAgeBinned())){
             ageBinned.add(repositoryFile.getAgeBinned());
@@ -158,7 +163,7 @@ public class RepositoryDatasetDisplay {
         this.sampleType = sampleType;
     }
 
-    public void addenrollmentCategory(String enrollmentCategory) {
+    public void addEnrollmentCategory(String enrollmentCategory) {
         if(enrollmentCategory != null && !enrollmentCategory.isEmpty()){
             this.enrollmentCategory.add(enrollmentCategory);
         }
@@ -584,7 +589,7 @@ public class RepositoryDatasetDisplay {
         if(this.diabetesHistory == null || this.diabetesHistory.isEmpty()){
             return null;
         }else{
-            return this.diabetesHistory;
+            return fixCapitalizaion(this.diabetesHistory);
         }
     }
 
@@ -597,7 +602,7 @@ public class RepositoryDatasetDisplay {
         if(this.hypertensionHistory == null || this.hypertensionHistory.isEmpty()){
             return null;
         }else{
-            return this.hypertensionHistory;
+            return fixCapitalizaion(this.hypertensionHistory);
         }
     }
 
@@ -644,4 +649,7 @@ public class RepositoryDatasetDisplay {
         this.onRaasBlockade = onRaasBlockade;
     }
 
+    public String fixCapitalizaion(String input){
+        return WordUtils.capitalizeFully(input, null);
+    }
 }

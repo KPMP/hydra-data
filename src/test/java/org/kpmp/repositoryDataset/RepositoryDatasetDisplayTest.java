@@ -85,7 +85,7 @@ public void setDlFileId() {
   public void testAddenrollmentCategory() {
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
-    repositoryDatasetDisplay.addenrollmentCategory("enrollment_category");
+    repositoryDatasetDisplay.addEnrollmentCategory("enrollment_category");
 
     assertEquals(1, repositoryDatasetDisplay.getenrollmentCategory().size());
     assertEquals(true, repositoryDatasetDisplay.getenrollmentCategory().contains("enrollment_category"));
@@ -344,8 +344,8 @@ public void setDlFileId() {
 
   @Test
   public void setDiabetesHistory() {
-    repositoryDatasetDisplay.setDiabetesHistory("no");
-    assertEquals("no", repositoryDatasetDisplay.getDiabetesHistory());
+    repositoryDatasetDisplay.setDiabetesHistory("dOn't KNoW");
+    assertEquals("Don't Know", repositoryDatasetDisplay.getDiabetesHistory());
   }
 
   @Test
@@ -357,7 +357,7 @@ public void setDlFileId() {
   @Test
   public void setHypertensionHistory() {
     repositoryDatasetDisplay.setHypertensionHistory("yes");
-    assertEquals("yes", repositoryDatasetDisplay.getHypertensionHistory());
+    assertEquals("Yes", repositoryDatasetDisplay.getHypertensionHistory());
   }
 
   @Test
