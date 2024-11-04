@@ -82,20 +82,20 @@ public void setDlFileId() {
   }
 
   @Test
-  public void testAddTissueType() {
+  public void testAddenrollmentCategory() {
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
-    repositoryDatasetDisplay.addTissueType("tissue_type");
+    repositoryDatasetDisplay.addenrollmentCategory("enrollment_category");
 
-    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
-    assertEquals(true, repositoryDatasetDisplay.getTissueType().contains("tissue_type"));
+    assertEquals(1, repositoryDatasetDisplay.getenrollmentCategory().size());
+    assertEquals(true, repositoryDatasetDisplay.getenrollmentCategory().contains("enrollment_category"));
   }
 
   @Test
-  public void setTissueType() {
-    Set<String> expected = new HashSet<String>(Arrays.asList("tissue_type"));
-    repositoryDatasetDisplay.setTissueType(expected);
-    Set<String> actual = repositoryDatasetDisplay.getTissueType();
+  public void setenrollmentCategory() {
+    Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
+    repositoryDatasetDisplay.setenrollmentCategory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getenrollmentCategory();
     assertEquals(expected, actual);
   }
 
@@ -298,6 +298,77 @@ public void setDlFileId() {
 
     repositoryDatasetDisplay.setPlatform("platform");
     assertEquals("platform", repositoryDatasetDisplay.getPlatformSort());
+  }
+
+  @Test
+  public void setKdigoStage(){
+    repositoryDatasetDisplay.setKdigoStage("stage 1");
+    assertEquals("stage 1", repositoryDatasetDisplay.getKdigoStage());
+  }
+
+  @Test
+  public void setPrimaryAdjudicatedCat(){
+    repositoryDatasetDisplay.setPrimaryAdjudicatedCat("blah");
+    assertEquals("blah", repositoryDatasetDisplay.getPrimaryAdjudicatedCategory());
+  }
+
+  @Test
+  public void setBaselineEgfr() {
+    repositoryDatasetDisplay.setBaselineEgfr("asd");
+    assertEquals("asd", repositoryDatasetDisplay.getBaselineEgfr());
+  }
+
+  @Test
+  public void setProteinuria() {
+    repositoryDatasetDisplay.setProteinuria("123");
+    assertEquals("123", repositoryDatasetDisplay.getProteinuria());
+  }
+
+  @Test
+  public void setA1c() {
+    repositoryDatasetDisplay.setA1c("humbug");
+    assertEquals("humbug", repositoryDatasetDisplay.getA1c());
+  }
+
+  @Test
+  public void setAlbuminuria() {
+    repositoryDatasetDisplay.setAlbuminuria("albuminuria");
+    assertEquals("albuminuria", repositoryDatasetDisplay.getAlbuminuria());
+  }
+
+  @Test
+  public void setDiabetesDuration() {
+    repositoryDatasetDisplay.setDiabetesDuration("1 century");
+    assertEquals("1 century", repositoryDatasetDisplay.getDiabetesDuration());
+  }
+
+  @Test
+  public void setDiabetesHistory() {
+    repositoryDatasetDisplay.setDiabetesHistory("no");
+    assertEquals("no", repositoryDatasetDisplay.getDiabetesHistory());
+  }
+
+  @Test
+  public void setHypertensionDuration() {
+    repositoryDatasetDisplay.setHypertensionDuration("123");
+    assertEquals("123", repositoryDatasetDisplay.getHypertensionDuration());
+  }
+
+  @Test
+  public void setHypertensionHistory() {
+    repositoryDatasetDisplay.setHypertensionHistory("yes");
+    assertEquals("yes", repositoryDatasetDisplay.getHypertensionHistory());
+  }
+
+  @Test
+  public void setRace() {
+    repositoryDatasetDisplay.setRace("race");
+    assertEquals("race", repositoryDatasetDisplay.getRace());
+  }
+
+  public void setOnRaasBlockade() {
+    repositoryDatasetDisplay.setOnRaasBlockade("no");
+    assertEquals("no", repositoryDatasetDisplay.getOnRaasBlockade());
   }
 }
  

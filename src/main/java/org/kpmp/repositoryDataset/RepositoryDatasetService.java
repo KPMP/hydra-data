@@ -72,7 +72,7 @@ public class RepositoryDatasetService  {
             displayFile.addAgeBinned(repositoryDataset.getAgeBinned());
             displayFile.addRedCapId(repositoryDataset.getId().getRedcapId());
             displayFile.addSampleType(repositoryDataset.getSampleType());
-            displayFile.addTissueType(repositoryDataset.getTissueType());
+            displayFile.addenrollmentCategory(repositoryDataset.getenrollmentCategory());
             displayFile.addSex(repositoryDataset.getSex());
             displayFile.addProtocol(repositoryDataset.getProtocol());
             displayFile.addTissueSource(repositoryDataset.getTissueSource());

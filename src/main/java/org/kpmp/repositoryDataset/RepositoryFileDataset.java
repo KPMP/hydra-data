@@ -9,7 +9,7 @@ public class RepositoryFileDataset {
     @EmbeddedId
     private RepositoryFileDatasetId id;
     private String sampleType;
-    private String tissueType;
+    private String enrollmentCategory;
     private String ageBinned;
     private String sex;
     private String access;
@@ -24,6 +24,20 @@ public class RepositoryFileDataset {
     private String packageId;
     private String tissueSource;
     private Double releaseVersion;
+    @Column(name = "primary_adjudicated_cat")
+    private String primaryAdjudicatedCat;
+    private String kdigoStage;
+    private String baselineEgfr;
+    private String proteinuria;
+    private String a1c;
+    private String albuminuria;
+    private String diabetesHistory;
+    private String diabetesDuration;
+    private String hypertensionHistory;
+    private String hypertensionDuration;
+    private String onRaasBlockade;
+    private String race;
+
 
     public RepositoryFileDatasetId getId() {
         return this.id;
@@ -41,12 +55,12 @@ public class RepositoryFileDataset {
         this.sampleType = sampleType;
     }
 
-    public String getTissueType() {
-        return tissueType;
+    public String getenrollmentCategory() {
+        return enrollmentCategory;
     }
 
-    public void setTissueType(String tissueType) {
-        this.tissueType = tissueType;
+    public void setenrollmentCategory(String enrollmentCategory) {
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     @Nullable
@@ -139,6 +153,102 @@ public class RepositoryFileDataset {
         this.protocol = protocol;
     }
 
+    public String getPrimaryAdjudicatedCat() {
+        return this.primaryAdjudicatedCat;
+    }
+
+    public void setPrimaryAdjudicatedCat(String primaryAdjudicatedCat) {
+        this.primaryAdjudicatedCat = primaryAdjudicatedCat;
+    }
+
+    public String getKdigoStage() {
+        return this.kdigoStage;
+    }
+
+    public void setKdigoStage(String kdigoStage) {
+        this.kdigoStage = kdigoStage;
+    }
+
+    public String getBaselineEgfr() {
+        return this.baselineEgfr;
+    }
+
+    public void setBaselineEgfr(String baselineEgfr) {
+        this.baselineEgfr = baselineEgfr;
+    }
+
+    public String getProteinuria() {
+        return this.proteinuria;
+    }
+
+    public void setProteinuria(String proteinuria) {
+        this.proteinuria = proteinuria;
+    }
+
+    public String getA1c() {
+        return this.a1c;
+    }
+
+    public void setA1c(String a1c) {
+        this.a1c = a1c;
+    }
+
+    public String getAlbuminuria() {
+        return this.albuminuria;
+    }
+
+    public void setAlbuminuria(String albuminuria) {
+        this.albuminuria = albuminuria;
+    }
+
+    public String getDiabetesHistory() {
+        return this.diabetesHistory;
+    }
+
+    public void setDiabetesHistory(String diabetesHistory) {
+        this.diabetesHistory = diabetesHistory;
+    }
+
+    public String getDiabetesDuration() {
+        return this.diabetesDuration;
+    }
+
+    public void setDiabetesDuration(String diabetesDuration) {
+        this.diabetesDuration = diabetesDuration;
+    }
+
+    public String getHypertensionHistory() {
+        return this.hypertensionHistory;
+    }
+
+    public void setHypertensionHistory(String hypertensionHistory) {
+        this.hypertensionHistory = hypertensionHistory;
+    }
+
+    public String getHypertensionDuration() {
+        return this.hypertensionDuration;
+    }
+
+    public void setHypertensionDuration(String hypertensionDuration) {
+        this.hypertensionDuration = hypertensionDuration;
+    }
+
+    public String getOnRaasBlockade() {
+        return this.onRaasBlockade;
+    }
+
+    public void setOnRaasBlockade(String onRaasBlockade) {
+        this.onRaasBlockade = onRaasBlockade;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
     public String getPackageId() {
         return packageId;
     }
@@ -162,5 +272,7 @@ public class RepositoryFileDataset {
     public void setReleaseVersion(Double releaseVersion) {
         this.releaseVersion = releaseVersion;
     }
+
+
 
 }

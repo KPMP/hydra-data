@@ -10,7 +10,7 @@ public class RepositoryDatasetDisplay {
     private String dlFileId;
     private Set<String> redcapId;
     private Set<String> sampleType;
-    private Set<String> tissueType;
+    private Set<String> enrollmentCategory;
     private Set<String> ageBinned;
     private Set<String> sex;
     private Set<String> doi;
@@ -28,12 +28,24 @@ public class RepositoryDatasetDisplay {
     private String fileName;
     private String packageId;
     private String fileNameSort;
+    private String primaryAdjudicatedCat;
+    private String kdigoStage;
+    private String baselineEgfr;
+    private String proteinuria;
+    private String a1c;
+    private String albuminuria;
+    private String diabetesDuration;
+    private String diabetesHistory;
+    private String hypertensionHistory;
+    private String hypertensionDuration;
+    private String race;
+    private String onRaasBlockade;
 
     public RepositoryDatasetDisplay(RepositoryFileDataset repositoryFile) {
         dlFileId = repositoryFile.getId().getDlFileId();
         redcapId = new HashSet<String>();
         sampleType = new HashSet<String>();
-        tissueType = new HashSet<String>();
+        enrollmentCategory = new HashSet<String>();
         ageBinned = new HashSet<String>();
         sex = new HashSet<String>();
         doi = new TreeSet<String>();
@@ -45,8 +57,8 @@ public class RepositoryDatasetDisplay {
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
         }
-        if (shouldAdd(repositoryFile.getTissueType())) {
-            tissueType.add(repositoryFile.getTissueType());
+        if (shouldAdd(repositoryFile.getenrollmentCategory())) {
+            enrollmentCategory.add(repositoryFile.getenrollmentCategory());
         }
         if(shouldAdd(repositoryFile.getAgeBinned())){
             ageBinned.add(repositoryFile.getAgeBinned());
@@ -77,6 +89,19 @@ public class RepositoryDatasetDisplay {
         fileSize = repositoryFile.getFileSize();
         fileName = repositoryFile.getFileName();
         packageId = repositoryFile.getPackageId();
+        primaryAdjudicatedCat = repositoryFile.getPrimaryAdjudicatedCat();
+        kdigoStage = repositoryFile.getKdigoStage();
+        baselineEgfr = repositoryFile.getBaselineEgfr();
+        proteinuria = repositoryFile.getProteinuria();
+        a1c = repositoryFile.getA1c();
+        albuminuria = repositoryFile.getAlbuminuria();
+        diabetesDuration = repositoryFile.getDiabetesDuration();
+        diabetesHistory = repositoryFile.getDiabetesHistory();
+        hypertensionDuration = repositoryFile.getHypertensionDuration();
+        hypertensionHistory = repositoryFile.getHypertensionHistory();
+        race = repositoryFile.getRace();
+        onRaasBlockade = repositoryFile.getOnRaasBlockade();
+        
     }
 
     @JsonProperty("file_id")
@@ -133,24 +158,24 @@ public class RepositoryDatasetDisplay {
         this.sampleType = sampleType;
     }
 
-    public void addTissueType(String tissueType) {
-        if(tissueType != null && !tissueType.isEmpty()){
-            this.tissueType.add(tissueType);
+    public void addenrollmentCategory(String enrollmentCategory) {
+        if(enrollmentCategory != null && !enrollmentCategory.isEmpty()){
+            this.enrollmentCategory.add(enrollmentCategory);
         }
     }
 
-    @JsonProperty("tissue_type")
-    public Set<String> getTissueType() {
-        if(tissueType.isEmpty()){
+    @JsonProperty("enrollment_category")
+    public Set<String> getenrollmentCategory() {
+        if(enrollmentCategory.isEmpty()){
             return null;
         }else{
-            return this.tissueType;
+            return this.enrollmentCategory;
         }
 
     }
 
-    public void setTissueType(Set<String> tissueType) {
-        this.tissueType = tissueType;
+    public void setenrollmentCategory(Set<String> enrollmentCategory) {
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     public void addAgeBinned(String ageBinned) {
@@ -461,6 +486,162 @@ public class RepositoryDatasetDisplay {
             return false;
         }
         return true;
+    }
+
+    @JsonProperty("primary_adjudicated_category")
+    public String getPrimaryAdjudicatedCategory() {
+        if(this.primaryAdjudicatedCat == null || this.primaryAdjudicatedCat.isEmpty() ){
+            return null;
+        }else{
+            return this.primaryAdjudicatedCat;
+        }
+    }
+
+    public void setPrimaryAdjudicatedCat(String primaryAdjudicatedCat) {
+        this.primaryAdjudicatedCat = primaryAdjudicatedCat;
+    }
+
+    @JsonProperty("kdigo_stage")
+    public String getKdigoStage() {
+        if(this.kdigoStage == null || this.kdigoStage.isEmpty()){
+            return null;
+        }else{
+            return this.kdigoStage;
+        }
+    }
+
+    public void setKdigoStage(String kdigoStage) {
+        this.kdigoStage = kdigoStage;
+    }
+
+    @JsonProperty("baseline_egfr")
+    public String getBaselineEgfr() {
+        if(this.baselineEgfr == null || this.baselineEgfr.isEmpty()){
+            return null;
+        }else{
+            return this.baselineEgfr;
+        }
+    }
+
+    public void setBaselineEgfr(String baselineEgfr) {
+        this.baselineEgfr = baselineEgfr;
+    }
+
+    @JsonProperty("proteinuria")
+    public String getProteinuria() {
+        if(this.proteinuria == null || this.proteinuria.isEmpty()){
+            return null;
+        }else{
+            return this.proteinuria;
+        }
+    }
+
+    public void setProteinuria(String proteinuria) {
+        this.proteinuria = proteinuria;
+    }
+
+    @JsonProperty("a1c")
+    public String getA1c() {
+        if(this.a1c == null || this.a1c.isEmpty()){
+            return null;
+        }else{
+            return this.a1c;
+        }
+    }
+
+    public void setA1c(String a1c) {
+        this.a1c = a1c;
+    }
+
+    @JsonProperty("albuminuria")
+    public String getAlbuminuria() {
+        if(this.albuminuria == null || this.albuminuria.isEmpty()){
+            return null;
+        }else{
+            return this.albuminuria;
+        }
+    }
+
+    public void setAlbuminuria(String albuminuria) {
+        this.albuminuria = albuminuria;
+    }
+
+    @JsonProperty("diabetes_duration")
+    public String getDiabetesDuration() {
+        if(this.diabetesDuration == null || this.diabetesDuration.isEmpty()){
+            return null;
+        }else{
+            return this.diabetesDuration;
+        }
+    }
+
+    public void setDiabetesDuration(String diabetesDuration) {
+        this.diabetesDuration = diabetesDuration;
+    }
+
+    @JsonProperty("diabetes_history")
+    public String getDiabetesHistory() {
+        if(this.diabetesHistory == null || this.diabetesHistory.isEmpty()){
+            return null;
+        }else{
+            return this.diabetesHistory;
+        }
+    }
+
+    public void setDiabetesHistory(String diabetesHistory) {
+        this.diabetesHistory = diabetesHistory;
+    }
+
+    @JsonProperty("hypertension_history")
+    public String getHypertensionHistory() {
+        if(this.hypertensionHistory == null || this.hypertensionHistory.isEmpty()){
+            return null;
+        }else{
+            return this.hypertensionHistory;
+        }
+    }
+
+    public void setHypertensionHistory(String hypertensionHistory) {
+        this.hypertensionHistory = hypertensionHistory;
+    }
+
+    @JsonProperty("hypertension_duration")
+    public String getHypertensionDuration() {
+        if(this.hypertensionDuration == null || this.hypertensionDuration.isEmpty()){
+            return null;
+        }else{
+            return this.hypertensionDuration;
+        }
+    }
+
+    public void setHypertensionDuration(String hypertensionDuration) {
+        this.hypertensionDuration = hypertensionDuration;
+    }
+
+    @JsonProperty("ethnicity")
+    public String getRace() {
+        if(this.race == null || this.race.isEmpty()){
+            return null;
+        }else{
+            return this.race;
+        }
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    @JsonProperty("on_raas_blockade")
+    public String getOnRaasBlockade() {
+        if(this.onRaasBlockade == null || this.onRaasBlockade.isEmpty()){
+            return null;
+        }else{
+            return this.onRaasBlockade;
+        }
+    }
+
+    public void setOnRaasBlockade(String onRaasBlockade) {
+        this.onRaasBlockade = onRaasBlockade;
     }
 
 }
