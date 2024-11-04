@@ -82,13 +82,10 @@ public void setDlFileId() {
   }
 
   @Test
-  public void testAddenrollmentCategory() {
-
+  public void testAddEnrollmentCategory() {
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
     repositoryDatasetDisplay.addEnrollmentCategory("enrollment_category");
-
-    assertEquals(1, repositoryDatasetDisplay.getenrollmentCategory().size());
-    assertEquals(true, repositoryDatasetDisplay.getenrollmentCategory().contains("enrollment_category"));
+    assertEquals(1, repositoryDatasetDisplay.getEnrollmentCategory().size());
   }
 
   @Test
@@ -96,6 +93,15 @@ public void setDlFileId() {
     Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
     repositoryDatasetDisplay.setenrollmentCategory(expected);
     Set<String> actual = repositoryDatasetDisplay.getenrollmentCategory();
+    assertEquals(1, repositoryDatasetDisplay.getEnrollmentCategory().size());
+    assertEquals(true, repositoryDatasetDisplay.getEnrollmentCategory().contains("enrollment_category"));
+  }
+
+  @Test
+  public void setEnrollmentCategory() {
+    Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
+    repositoryDatasetDisplay.setEnrollmentCategory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getEnrollmentCategory();
     assertEquals(expected, actual);
   }
 

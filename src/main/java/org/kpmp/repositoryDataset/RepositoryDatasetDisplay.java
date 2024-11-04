@@ -168,7 +168,7 @@ public class RepositoryDatasetDisplay {
     }
 
     @JsonProperty("enrollment_category")
-    public Set<String> getenrollmentCategory() {
+    public Set<String> getEnrollmentCategory() {
         if(enrollmentCategory.isEmpty()){
             return null;
         }else{
@@ -177,7 +177,7 @@ public class RepositoryDatasetDisplay {
 
     }
 
-    public void setenrollmentCategory(Set<String> enrollmentCategory) {
+    public void setEnrollmentCategory(Set<String> enrollmentCategory) {
         this.enrollmentCategory = enrollmentCategory;
     }
 

@@ -27,7 +27,7 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
-    public void setenrollmentCategory() {
+    public void setEnrollmentCategory() {
         repositoryDataset.setEnrollmentCategory("ttype");
         assertEquals("ttype", repositoryDataset.getEnrollmentCategory());
     }
