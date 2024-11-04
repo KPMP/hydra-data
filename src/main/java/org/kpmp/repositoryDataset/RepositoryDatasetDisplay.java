@@ -10,7 +10,7 @@ public class RepositoryDatasetDisplay {
     private String dlFileId;
     private Set<String> redcapId;
     private Set<String> sampleType;
-    private Set<String> tissueType;
+    private Set<String> enrollmentCategory;
     private Set<String> ageBinned;
     private Set<String> sex;
     private Set<String> doi;
@@ -33,7 +33,7 @@ public class RepositoryDatasetDisplay {
         dlFileId = repositoryFile.getId().getDlFileId();
         redcapId = new HashSet<String>();
         sampleType = new HashSet<String>();
-        tissueType = new HashSet<String>();
+        enrollmentCategory = new HashSet<String>();
         ageBinned = new HashSet<String>();
         sex = new HashSet<String>();
         doi = new TreeSet<String>();
@@ -45,8 +45,8 @@ public class RepositoryDatasetDisplay {
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
         }
-        if (shouldAdd(repositoryFile.getTissueType())) {
-            tissueType.add(repositoryFile.getTissueType());
+        if (shouldAdd(repositoryFile.getEnrollmentCategory())) {
+            enrollmentCategory.add(repositoryFile.getEnrollmentCategory());
         }
         if(shouldAdd(repositoryFile.getAgeBinned())){
             ageBinned.add(repositoryFile.getAgeBinned());
@@ -133,24 +133,24 @@ public class RepositoryDatasetDisplay {
         this.sampleType = sampleType;
     }
 
-    public void addTissueType(String tissueType) {
-        if(tissueType != null && !tissueType.isEmpty()){
-            this.tissueType.add(tissueType);
+    public void addEnrollmentCategory(String enrollmentCategory) {
+        if(enrollmentCategory != null && !enrollmentCategory.isEmpty()){
+            this.enrollmentCategory.add(enrollmentCategory);
         }
     }
 
-    @JsonProperty("tissue_type")
-    public Set<String> getTissueType() {
-        if(tissueType.isEmpty()){
+    @JsonProperty("enrollment_category")
+    public Set<String> getEnrollmentCategory() {
+        if(enrollmentCategory.isEmpty()){
             return null;
         }else{
-            return this.tissueType;
+            return this.enrollmentCategory;
         }
 
     }
 
-    public void setTissueType(Set<String> tissueType) {
-        this.tissueType = tissueType;
+    public void setEnrollmentCategory(Set<String> enrollmentCategory) {
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     public void addAgeBinned(String ageBinned) {

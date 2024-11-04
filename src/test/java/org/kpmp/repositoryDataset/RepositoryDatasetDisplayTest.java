@@ -82,20 +82,20 @@ public void setDlFileId() {
   }
 
   @Test
-  public void testAddTissueType() {
+  public void testAddEnrollmentCategory() {
 
     RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
-    repositoryDatasetDisplay.addTissueType("tissue_type");
+    repositoryDatasetDisplay.addEnrollmentCategory("enrollment_category");
 
-    assertEquals(1, repositoryDatasetDisplay.getTissueType().size());
-    assertEquals(true, repositoryDatasetDisplay.getTissueType().contains("tissue_type"));
+    assertEquals(1, repositoryDatasetDisplay.getEnrollmentCategory().size());
+    assertEquals(true, repositoryDatasetDisplay.getEnrollmentCategory().contains("enrollment_category"));
   }
 
   @Test
-  public void setTissueType() {
-    Set<String> expected = new HashSet<String>(Arrays.asList("tissue_type"));
-    repositoryDatasetDisplay.setTissueType(expected);
-    Set<String> actual = repositoryDatasetDisplay.getTissueType();
+  public void setEnrollmentCategory() {
+    Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
+    repositoryDatasetDisplay.setEnrollmentCategory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getEnrollmentCategory();
     assertEquals(expected, actual);
   }
 

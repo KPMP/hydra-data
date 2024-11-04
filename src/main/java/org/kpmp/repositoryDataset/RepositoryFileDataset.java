@@ -9,7 +9,7 @@ public class RepositoryFileDataset {
     @EmbeddedId
     private RepositoryFileDatasetId id;
     private String sampleType;
-    private String tissueType;
+    private String enrollmentCategory;
     private String ageBinned;
     private String sex;
     private String access;
@@ -41,12 +41,12 @@ public class RepositoryFileDataset {
         this.sampleType = sampleType;
     }
 
-    public String getTissueType() {
-        return tissueType;
+    public String getEnrollmentCategory() {
+        return enrollmentCategory;
     }
 
-    public void setTissueType(String tissueType) {
-        this.tissueType = tissueType;
+    public void setEnrollmentCategory(String enrollmentCategory) {
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     @Nullable
