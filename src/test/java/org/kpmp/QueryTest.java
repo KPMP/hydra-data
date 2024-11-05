@@ -57,6 +57,18 @@ public class QueryTest {
         repositoryFileDataset.setEnrollmentCategory("organic");
         repositoryFileDataset.setWorkflowType("workflowType");
         repositoryFileDatasetId.setDlFileId("dlFileId");
+        repositoryFileDataset.setPrimaryAdjudicatedCategory("primaryAdjudicatedCategory");
+        repositoryFileDataset.setKdigoStage("kdigoStage");
+        repositoryFileDataset.setBaselineEgfr("baselineEgfr");
+        repositoryFileDataset.setProteinuria("proteinuria");
+        repositoryFileDataset.setA1c("a1c");
+        repositoryFileDataset.setAlbuminuria("albuminuria");
+        repositoryFileDataset.setDiabetesDuration("diabetesDuration");
+        repositoryFileDataset.setDiabetesHistory("diabetesHistory");
+        repositoryFileDataset.setHypertensionDuration("hypertensionDuration");
+        repositoryFileDataset.setHypertensionHistory("hypertensionHistory");
+        repositoryFileDataset.setRace("race");
+        repositoryFileDataset.setOnRaasBlockade("onRaasBlockade");
         repositoryFileDataset.setId(repositoryFileDatasetId);
         
         List<RepositoryDatasetDisplay> expectedResult = Arrays.asList(new RepositoryDatasetDisplay(repositoryFileDataset));

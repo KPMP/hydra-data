@@ -2,25 +2,18 @@ package org.kpmp.repositoryDataset;
 
 import java.util.HashSet;
 import java.util.TreeSet;
+
+import org.apache.commons.text.WordUtils;
+
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RepositoryDatasetDisplay {
     private static final int UUID_LENGTH = 37;
     private String dlFileId;
-    private Set<String> redcapId;
-    private Set<String> sampleType;
-    private Set<String> enrollmentCategory;
-    private Set<String> ageBinned;
-    private Set<String> sex;
-    private Set<String> doi;
     private String access;
     private String platform;
     private String releaseVersion;
-    private Set<String> protocol;
-    private Set<String> tissueSource;
-    private Set<String> experimentalStrategy;
-    private Set<String> workflowType;
     private String dataFormat;
     private String dataCategory;
     private String dataType;
@@ -28,6 +21,28 @@ public class RepositoryDatasetDisplay {
     private String fileName;
     private String packageId;
     private String fileNameSort;
+    private Set<String> protocol;
+    private Set<String> tissueSource;
+    private Set<String> experimentalStrategy;
+    private Set<String> workflowType;
+    private Set<String> redcapId;
+    private Set<String> sampleType;
+    private Set<String> enrollmentCategory;
+    private Set<String> ageBinned;
+    private Set<String> sex;
+    private Set<String> doi;
+    private Set<String> primaryAdjudicatedCategory;
+    private Set<String> kdigoStage;
+    private Set<String> baselineEgfr;
+    private Set<String> proteinuria;
+    private Set<String> a1c;
+    private Set<String> albuminuria;
+    private Set<String> diabetesDuration;
+    private Set<String> diabetesHistory;
+    private Set<String> hypertensionHistory;
+    private Set<String> hypertensionDuration;
+    private Set<String> race;
+    private Set<String> onRaasBlockade;
 
     public RepositoryDatasetDisplay(RepositoryFileDataset repositoryFile) {
         dlFileId = repositoryFile.getId().getDlFileId();
@@ -41,6 +56,19 @@ public class RepositoryDatasetDisplay {
         tissueSource = new HashSet<String>();
         experimentalStrategy = new TreeSet<String>();
         workflowType = new HashSet<String>();
+        a1c = new HashSet<String>();
+        albuminuria = new HashSet<String>();
+        baselineEgfr = new HashSet<String>();
+        diabetesDuration = new HashSet<String>();
+        diabetesHistory = new HashSet<String>();
+        primaryAdjudicatedCategory = new HashSet<String>();
+        kdigoStage = new HashSet<String>();
+        proteinuria = new HashSet<String>();
+        hypertensionDuration = new HashSet<String>();
+        hypertensionHistory = new HashSet<String>();
+        race = new HashSet<String>();
+        onRaasBlockade = new HashSet<String>(); 
+
         redcapId.add(repositoryFile.getId().getRedcapId());
         if (shouldAdd(repositoryFile.getSampleType())) {
             sampleType.add(repositoryFile.getSampleType());
@@ -68,6 +96,42 @@ public class RepositoryDatasetDisplay {
         }
         if(shouldAdd(repositoryFile.getWorkflowType())){
             workflowType.add(repositoryFile.getWorkflowType());
+        }
+        if(shouldAdd(repositoryFile.getA1c())){
+            a1c.add(repositoryFile.getA1c());
+        }
+        if(shouldAdd(repositoryFile.getAlbuminuria())){
+            albuminuria.add(repositoryFile.getAlbuminuria());
+        }
+        if(shouldAdd(repositoryFile.getBaselineEgfr())){
+            baselineEgfr.add(repositoryFile.getBaselineEgfr());
+        }
+        if(shouldAdd(repositoryFile.getDiabetesDuration())){
+            diabetesDuration.add(repositoryFile.getDiabetesDuration());
+        }
+        if(shouldAdd(repositoryFile.getDiabetesHistory())){
+            diabetesHistory.add(repositoryFile.getDiabetesHistory());
+        }
+        if(shouldAdd(repositoryFile.getPrimaryAdjudicatedCategory())){
+            primaryAdjudicatedCategory.add(repositoryFile.getPrimaryAdjudicatedCategory());
+        }
+        if(shouldAdd(repositoryFile.getKdigoStage())){
+            kdigoStage.add(repositoryFile.getKdigoStage());
+        }
+        if(shouldAdd(repositoryFile.getProteinuria())){
+            proteinuria.add(repositoryFile.getProteinuria());
+        }
+        if(shouldAdd(repositoryFile.getHypertensionDuration())){
+            hypertensionDuration.add(repositoryFile.getHypertensionDuration());
+        }
+        if(shouldAdd(repositoryFile.getHypertensionHistory())){
+            hypertensionHistory.add(repositoryFile.getHypertensionHistory());
+        }
+        if(shouldAdd(repositoryFile.getRace())){
+            race.add(repositoryFile.getRace());
+        }
+        if(shouldAdd(repositoryFile.getOnRaasBlockade())){
+            onRaasBlockade.add(repositoryFile.getOnRaasBlockade());
         }
         access = repositoryFile.getAccess();
         dataFormat = repositoryFile.getDataFormat();
@@ -463,4 +527,240 @@ public class RepositoryDatasetDisplay {
         return true;
     }
 
+    @JsonProperty("primary_adjudicated_category")
+    public Set<String> getPrimaryAdjudicatedCategory() {
+        if(this.primaryAdjudicatedCategory.isEmpty() ){
+            return null;
+        }else{
+            return this.primaryAdjudicatedCategory;
+        }
+    }
+
+    public void addPrimaryAdjudicatedCategory(String primaryAdjudicatedCategory) {
+        if(primaryAdjudicatedCategory != null && !primaryAdjudicatedCategory.isEmpty()){
+            this.primaryAdjudicatedCategory.add(primaryAdjudicatedCategory);
+        }
+    }
+
+    public void setPrimaryAdjudicatedCat(Set<String> primaryAdjudicatedCategory) {
+        this.primaryAdjudicatedCategory = primaryAdjudicatedCategory;
+    }
+
+    @JsonProperty("kdigo_stage")
+    public Set<String> getKdigoStage() {
+        if(this.kdigoStage.isEmpty()){
+            return null;
+        }else{
+            return this.kdigoStage;
+        }
+    }
+
+    public void addKdigoStage(String kdigoStage) {
+        if(kdigoStage != null && !kdigoStage.isEmpty()){
+            this.kdigoStage.add(kdigoStage);
+        }
+    }
+
+    public void setKdigoStage(Set<String> kdigoStage) {
+        this.kdigoStage = kdigoStage;
+    }
+
+    @JsonProperty("baseline_egfr")
+    public Set<String> getBaselineEgfr() {
+        if(this.baselineEgfr.isEmpty()){
+            return null;
+        }else{
+            return this.baselineEgfr;
+        }
+    }
+
+    public void addBaselineEgfr(String baselineEgfr) {
+        if(baselineEgfr != null && !baselineEgfr.isEmpty()){
+            this.baselineEgfr.add(baselineEgfr);
+        }
+    }
+
+    public void setBaselineEgfr(Set<String> baselineEgfr) {
+        this.baselineEgfr = baselineEgfr;
+    }
+
+    @JsonProperty("proteinuria")
+    public Set<String> getProteinuria() {
+        if(this.proteinuria.isEmpty()){
+            return null;
+        }else{
+            return this.proteinuria;
+        }
+    }
+
+    public void addProteinuria(String proteinuria) {
+        if(proteinuria != null && !proteinuria.isEmpty()){
+            this.proteinuria.add(proteinuria);
+        }
+    }
+
+    public void setProteinuria(Set<String> proteinuria) {
+        this.proteinuria = proteinuria;
+    }
+
+    @JsonProperty("a1c")
+    public Set<String> getA1c() {
+        if(this.a1c.isEmpty()){
+            return null;
+        }else{
+            return this.a1c;
+        }
+    }
+
+    public void addA1c(String a1c) {
+        if(a1c != null && !a1c.isEmpty()){
+            this.a1c.add(a1c);
+        }
+    }
+
+    public void setA1c(Set<String> a1c) {
+        this.a1c = a1c;
+    }
+
+    @JsonProperty("albuminuria")
+    public Set<String> getAlbuminuria() {
+        if(this.albuminuria.isEmpty()){
+            return null;
+        }else{
+            return this.albuminuria;
+        }
+    }
+
+    public void addAlbuminuria(String albuminuria) {
+        if(albuminuria != null && !albuminuria.isEmpty()){
+            this.albuminuria.add(albuminuria);
+        }
+    }
+
+    public void setAlbuminuria(Set<String> albuminuria) {
+        this.albuminuria = albuminuria;
+    }
+
+    @JsonProperty("diabetes_duration")
+    public Set<String> getDiabetesDuration() {
+        if(this.diabetesDuration.isEmpty()){
+            return null;
+        }else{
+            return this.diabetesDuration;
+        }
+    }
+
+    public void addDiabetesDuration(String diabetesDuration) {
+        if(diabetesDuration != null && !diabetesDuration.isEmpty()){
+            this.diabetesDuration.add(diabetesDuration);
+        }
+    }
+
+    public void setDiabetesDuration(Set<String> diabetesDuration) {
+        this.diabetesDuration = diabetesDuration;
+    }
+
+    @JsonProperty("diabetes_history")
+    public Set<String> getDiabetesHistory() {
+        if(this.diabetesHistory.isEmpty()){
+            return null;
+        }else{
+            return fixCapitalization(this.diabetesHistory);
+        }
+    }
+
+    public void addDiabetesHistory(String diabetesHistory) {
+        if(diabetesHistory != null && !diabetesHistory.isEmpty()){
+            this.diabetesHistory.add(diabetesHistory);
+        }
+    }
+
+    public void setDiabetesHistory(Set<String> diabetesHistory) {
+        this.diabetesHistory = diabetesHistory;
+    }
+
+    @JsonProperty("hypertension_history")
+    public Set<String> getHypertensionHistory() {
+        if(this.hypertensionHistory.isEmpty()){
+            return null;
+        }else{
+            return fixCapitalization(this.hypertensionHistory);
+        }
+    }
+
+    public void addHypertensionHistory(String hypertensionHistory) {
+        if(hypertensionHistory != null && !hypertensionHistory.isEmpty()){
+            this.hypertensionHistory.add(hypertensionHistory);
+        }
+    }
+
+    public void setHypertensionHistory(Set<String> hypertensionHistory) {
+        this.hypertensionHistory = hypertensionHistory;
+    }
+
+    @JsonProperty("hypertension_duration")
+    public Set<String> getHypertensionDuration() {
+        if(this.hypertensionDuration.isEmpty()){
+            return null;
+        }else{
+            return this.hypertensionDuration;
+        }
+    }
+
+    public void addHypertensionDuration(String hypertensionDuration) {
+        if(hypertensionDuration != null && !hypertensionDuration.isEmpty()){
+            this.hypertensionDuration.add(hypertensionDuration);
+        }
+    }
+
+    public void setHypertensionDuration(Set<String> hypertensionDuration) {
+        this.hypertensionDuration = hypertensionDuration;
+    }
+
+    @JsonProperty("ethnicity")
+    public Set<String> getRace() {
+        if(this.race.isEmpty()){
+            return null;
+        }else{
+            return this.race;
+        }
+    }
+
+    public void addRace(String race) {
+        if(race != null && !race.isEmpty()){
+            this.race.add(race);
+        }
+    }
+
+    public void setRace(Set<String> race) {
+        this.race = race;
+    }
+
+    @JsonProperty("on_raas_blockade")
+    public Set<String> getOnRaasBlockade() {
+        if(this.onRaasBlockade.isEmpty()){
+            return null;
+        }else{
+            return this.onRaasBlockade;
+        }
+    }
+
+    public void addOnRaasBlockade(String onRaasBlockade) {
+        if(onRaasBlockade != null && !onRaasBlockade.isEmpty()){
+            this.onRaasBlockade.add(onRaasBlockade);
+        }
+    }
+
+    public void setOnRaasBlockade(Set<String> onRaasBlockade) {
+        this.onRaasBlockade = onRaasBlockade;
+    }
+
+    public Set<String> fixCapitalization(Set<String> input){
+        Set<String> wordList = new HashSet<String>();
+        for (String string : input) {
+            String updatedInput = WordUtils.capitalizeFully(string);
+            wordList.add(updatedInput);
+        }
+        return wordList;
+    }
 }
