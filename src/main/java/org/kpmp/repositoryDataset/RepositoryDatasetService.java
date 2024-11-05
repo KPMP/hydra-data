@@ -84,7 +84,7 @@ public class RepositoryDatasetService  {
             displayFile.addBaselineEgfr(repositoryDataset.getBaselineEgfr());
             displayFile.addDiabetesDuration(repositoryDataset.getDiabetesDuration());
             displayFile.addDiabetesHistory(repositoryDataset.getDiabetesHistory());
-            displayFile.addPrimaryAdjudicatedCategory(repositoryDataset.getPrimaryAdjudicatedCat());
+            displayFile.addPrimaryAdjudicatedCategory(repositoryDataset.getPrimaryAdjudicatedCategory());
             displayFile.addKdigoStage(repositoryDataset.getKdigoStage());
             displayFile.addProteinuria(repositoryDataset.getProteinuria());
             displayFile.addHypertensionDuration(repositoryDataset.getHypertensionDuration());

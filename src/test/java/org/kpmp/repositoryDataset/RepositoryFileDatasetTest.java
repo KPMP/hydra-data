@@ -113,8 +113,8 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setPrimaryAdjudicatedCat() {
-        repositoryDataset.setPrimaryAdjudicatedCat("blah");
-        assertEquals("blah" ,repositoryDataset.getPrimaryAdjudicatedCat());
+        repositoryDataset.setPrimaryAdjudicatedCategory("blah");
+        assertEquals("blah" ,repositoryDataset.getPrimaryAdjudicatedCategory());
     }
 
     @Test

@@ -25,7 +25,7 @@ public class RepositoryFileDataset {
     private String tissueSource;
     private Double releaseVersion;
     @Column(name = "primary_adjudicated_cat")
-    private String primaryAdjudicatedCat;
+    private String primaryAdjudicatedCategory;
     private String kdigoStage;
     private String baselineEgfr;
     private String proteinuria;
@@ -153,12 +153,12 @@ public class RepositoryFileDataset {
         this.protocol = protocol;
     }
 
-    public String getPrimaryAdjudicatedCat() {
-        return this.primaryAdjudicatedCat;
+    public String getPrimaryAdjudicatedCategory() {
+        return this.primaryAdjudicatedCategory;
     }
 
-    public void setPrimaryAdjudicatedCat(String primaryAdjudicatedCat) {
-        this.primaryAdjudicatedCat = primaryAdjudicatedCat;
+    public void setPrimaryAdjudicatedCategory(String primaryAdjudicatedCat) {
+        this.primaryAdjudicatedCategory = primaryAdjudicatedCat;
     }
 
     public String getKdigoStage() {

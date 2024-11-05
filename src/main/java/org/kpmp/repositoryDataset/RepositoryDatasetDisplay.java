@@ -112,8 +112,8 @@ public class RepositoryDatasetDisplay {
         if(shouldAdd(repositoryFile.getDiabetesHistory())){
             diabetesHistory.add(repositoryFile.getDiabetesHistory());
         }
-        if(shouldAdd(repositoryFile.getPrimaryAdjudicatedCat())){
-            primaryAdjudicatedCategory.add(repositoryFile.getPrimaryAdjudicatedCat());
+        if(shouldAdd(repositoryFile.getPrimaryAdjudicatedCategory())){
+            primaryAdjudicatedCategory.add(repositoryFile.getPrimaryAdjudicatedCategory());
         }
         if(shouldAdd(repositoryFile.getKdigoStage())){
             kdigoStage.add(repositoryFile.getKdigoStage());

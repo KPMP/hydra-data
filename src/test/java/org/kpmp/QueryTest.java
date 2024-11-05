@@ -57,7 +57,7 @@ public class QueryTest {
         repositoryFileDataset.setEnrollmentCategory("organic");
         repositoryFileDataset.setWorkflowType("workflowType");
         repositoryFileDatasetId.setDlFileId("dlFileId");
-        repositoryFileDataset.setPrimaryAdjudicatedCat("primaryAdjudicatedCategory");
+        repositoryFileDataset.setPrimaryAdjudicatedCategory("primaryAdjudicatedCategory");
         repositoryFileDataset.setKdigoStage("kdigoStage");
         repositoryFileDataset.setBaselineEgfr("baselineEgfr");
         repositoryFileDataset.setProteinuria("proteinuria");
