@@ -89,15 +89,6 @@ public void setDlFileId() {
   }
 
   @Test
-  public void setenrollmentCategory() {
-    Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
-    repositoryDatasetDisplay.setEnrollmentCategory(expected);
-    Set<String> actual = repositoryDatasetDisplay.getEnrollmentCategory();
-    assertEquals(1, repositoryDatasetDisplay.getEnrollmentCategory().size());
-    assertEquals(true, repositoryDatasetDisplay.getEnrollmentCategory().contains("enrollment_category"));
-  }
-
-  @Test
   public void setEnrollmentCategory() {
     Set<String> expected = new HashSet<String>(Arrays.asList("enrollment_category"));
     repositoryDatasetDisplay.setEnrollmentCategory(expected);
@@ -303,78 +294,187 @@ public void setDlFileId() {
     assertEquals("aaaaa", repositoryDatasetDisplay.getPlatformSort());
 
     repositoryDatasetDisplay.setPlatform("platform");
-    assertEquals("platform", repositoryDatasetDisplay.getPlatformSort());
+    assertEquals("PLATFORM", repositoryDatasetDisplay.getPlatformSort());
   }
 
   @Test
-  public void setKdigoStage(){
-    repositoryDatasetDisplay.setKdigoStage("stage 1");
-    assertEquals("stage 1", repositoryDatasetDisplay.getKdigoStage());
+  public void setKdigoStage() {
+    Set<String> expected = new HashSet<String>(Arrays.asList("kdigo_stage"));
+    repositoryDatasetDisplay.setKdigoStage(expected);
+    Set<String> actual = repositoryDatasetDisplay.getKdigoStage();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testAddKdigoStage() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addKdigoStage("kdigo_stage");
+    assertEquals(1, repositoryDatasetDisplay.getKdigoStage().size());
   }
 
   @Test
   public void setPrimaryAdjudicatedCat(){
-    repositoryDatasetDisplay.setPrimaryAdjudicatedCat("blah");
-    assertEquals("blah", repositoryDatasetDisplay.getPrimaryAdjudicatedCategory());
+    Set<String> expected = new HashSet<String>(Arrays.asList("category"));
+    repositoryDatasetDisplay.setPrimaryAdjudicatedCat(expected);
+    Set<String> actual = repositoryDatasetDisplay.getPrimaryAdjudicatedCategory();
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void setBaselineEgfr() {
-    repositoryDatasetDisplay.setBaselineEgfr("asd");
-    assertEquals("asd", repositoryDatasetDisplay.getBaselineEgfr());
+  public void testAddPrimaryAdjudicatedCat() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addPrimaryAdjudicatedCategory("category");
+    assertEquals(1, repositoryDatasetDisplay.getPrimaryAdjudicatedCategory().size());
   }
 
   @Test
-  public void setProteinuria() {
-    repositoryDatasetDisplay.setProteinuria("123");
-    assertEquals("123", repositoryDatasetDisplay.getProteinuria());
+  public void setBaselineEgfr(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("baseline"));
+    repositoryDatasetDisplay.setBaselineEgfr(expected);
+    Set<String> actual = repositoryDatasetDisplay.getBaselineEgfr();
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void setA1c() {
-    repositoryDatasetDisplay.setA1c("humbug");
-    assertEquals("humbug", repositoryDatasetDisplay.getA1c());
+  public void testAddBaselineEgfr() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addBaselineEgfr("baseline");
+    assertEquals(1, repositoryDatasetDisplay.getBaselineEgfr().size());
   }
 
   @Test
-  public void setAlbuminuria() {
-    repositoryDatasetDisplay.setAlbuminuria("albuminuria");
-    assertEquals("albuminuria", repositoryDatasetDisplay.getAlbuminuria());
+  public void testSetProteinuria(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("proteinuria"));
+    repositoryDatasetDisplay.setProteinuria(expected);
+    Set<String> actual = repositoryDatasetDisplay.getProteinuria();
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void setDiabetesDuration() {
-    repositoryDatasetDisplay.setDiabetesDuration("1 century");
-    assertEquals("1 century", repositoryDatasetDisplay.getDiabetesDuration());
+  public void testAddProteinuria() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addProteinuria("proteinuria");
+    assertEquals(1, repositoryDatasetDisplay.getProteinuria().size());
   }
 
   @Test
-  public void setDiabetesHistory() {
-    repositoryDatasetDisplay.setDiabetesHistory("dOn't KNoW");
-    assertEquals("Don't Know", repositoryDatasetDisplay.getDiabetesHistory());
+  public void testSetA1c(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("a1c"));
+    repositoryDatasetDisplay.setA1c(expected);
+    Set<String> actual = repositoryDatasetDisplay.getA1c();
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void setHypertensionDuration() {
-    repositoryDatasetDisplay.setHypertensionDuration("123");
-    assertEquals("123", repositoryDatasetDisplay.getHypertensionDuration());
+  public void testAddA1c() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addA1c("A1c");
+    assertEquals(1, repositoryDatasetDisplay.getA1c().size());
   }
 
   @Test
-  public void setHypertensionHistory() {
-    repositoryDatasetDisplay.setHypertensionHistory("yes");
-    assertEquals("Yes", repositoryDatasetDisplay.getHypertensionHistory());
+  public void testSetAlbuminuria(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("albuminuria"));
+    repositoryDatasetDisplay.setAlbuminuria(expected);
+    Set<String> actual = repositoryDatasetDisplay.getAlbuminuria();
+    assertEquals(expected, actual);
   }
 
   @Test
-  public void setRace() {
-    repositoryDatasetDisplay.setRace("race");
-    assertEquals("race", repositoryDatasetDisplay.getRace());
+  public void testAddAlbuminuria() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addAlbuminuria("albuminuria");
+    assertEquals(1, repositoryDatasetDisplay.getAlbuminuria().size());
   }
 
-  public void setOnRaasBlockade() {
-    repositoryDatasetDisplay.setOnRaasBlockade("no");
-    assertEquals("no", repositoryDatasetDisplay.getOnRaasBlockade());
+  @Test
+  public void testAddDiabetesDuration() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addDiabetesDuration("A1c");
+    assertEquals(1, repositoryDatasetDisplay.getDiabetesDuration().size());
+  }
+
+  @Test
+  public void testSetDiabetesDuration(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("duration"));
+    repositoryDatasetDisplay.setDiabetesDuration(expected);
+    Set<String> actual = repositoryDatasetDisplay.getDiabetesDuration();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testAddDiabetesHistory() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addDiabetesHistory("history");
+    assertEquals(1, repositoryDatasetDisplay.getDiabetesHistory().size());
+  }
+
+  @Test
+  public void testSetDiabetesHistory(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("dOn't KNoW"));
+    repositoryDatasetDisplay.setDiabetesHistory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getDiabetesHistory();
+    assertEquals(new HashSet<String>(Arrays.asList("Don't Know")), actual);
+  }
+
+  @Test
+  public void testAddHypertensionDuration() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addHypertensionDuration("duration");
+    assertEquals(1, repositoryDatasetDisplay.getHypertensionDuration().size());
+  }
+
+  @Test
+  public void testSetHypertensionDuration(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("duration"));
+    repositoryDatasetDisplay.setHypertensionDuration(expected);
+    Set<String> actual = repositoryDatasetDisplay.getHypertensionDuration();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testAddHypertensionHistory() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addHypertensionHistory("don't KnoW");
+    assertEquals(1, repositoryDatasetDisplay.getHypertensionHistory().size());
+  }
+
+  @Test
+  public void testSetHypertensionHistory(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("dOn't KNoW"));
+    repositoryDatasetDisplay.setHypertensionHistory(expected);
+    Set<String> actual = repositoryDatasetDisplay.getHypertensionHistory();
+    assertEquals(new HashSet<String>(Arrays.asList("Don't Know")), actual);
+  }
+
+  @Test
+  public void testAddRace() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addRace("race");
+    assertEquals(1, repositoryDatasetDisplay.getRace().size());
+  }
+
+  @Test
+  public void testSetRace(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("race"));
+    repositoryDatasetDisplay.setRace(expected);
+    Set<String> actual = repositoryDatasetDisplay.getRace();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testAddOnRaasBlockade() {
+    RepositoryDatasetDisplay repositoryDatasetDisplay = new RepositoryDatasetDisplay(repositoryFile);
+    repositoryDatasetDisplay.addOnRaasBlockade("OnRaasBlockade");
+    assertEquals(1, repositoryDatasetDisplay.getOnRaasBlockade().size());
+  }
+
+  @Test
+  public void testSetOnRaasBlockade(){
+    Set<String> expected = new HashSet<String>(Arrays.asList("onRaasBlockade"));
+    repositoryDatasetDisplay.setOnRaasBlockade(expected);
+    Set<String> actual = repositoryDatasetDisplay.getOnRaasBlockade();
+    assertEquals(expected, actual);
   }
 }
  
