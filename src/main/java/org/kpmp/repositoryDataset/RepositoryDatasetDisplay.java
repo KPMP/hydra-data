@@ -717,7 +717,7 @@ public class RepositoryDatasetDisplay {
         this.hypertensionDuration = hypertensionDuration;
     }
 
-    @JsonProperty("ethnicity")
+    @JsonProperty("race")
     public Set<String> getRace() {
         if(this.race.isEmpty()){
             return null;
