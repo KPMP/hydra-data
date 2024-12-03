@@ -162,7 +162,7 @@ public class RepositoryFileDataset {
     }
 
     public String getKdigoStage() {
-        return this.kdigoStage;
+        return this.kdigoStage + "(ks)";
     }
 
     public void setKdigoStage(String kdigoStage) {
@@ -170,7 +170,7 @@ public class RepositoryFileDataset {
     }
 
     public String getBaselineEgfr() {
-        return this.baselineEgfr;
+        return this.baselineEgfr + "(eGFR)";
     }
 
     public void setBaselineEgfr(String baselineEgfr) {
@@ -178,7 +178,7 @@ public class RepositoryFileDataset {
     }
 
     public String getProteinuria() {
-        return this.proteinuria;
+        return this.proteinuria + "(prot)";
     }
 
     public void setProteinuria(String proteinuria) {
@@ -186,7 +186,7 @@ public class RepositoryFileDataset {
     }
 
     public String getA1c() {
-        return this.a1c;
+        return this.a1c + "(a1c)";
     }
 
     public void setA1c(String a1c) {
@@ -194,7 +194,7 @@ public class RepositoryFileDataset {
     }
 
     public String getAlbuminuria() {
-        return this.albuminuria;
+        return this.albuminuria + "(alb)";
     }
 
     public void setAlbuminuria(String albuminuria) {
@@ -202,7 +202,7 @@ public class RepositoryFileDataset {
     }
 
     public String getDiabetesHistory() {
-        return this.diabetesHistory;
+        return this.diabetesHistory + "(dh)";
     }
 
     public void setDiabetesHistory(String diabetesHistory) {
@@ -210,7 +210,7 @@ public class RepositoryFileDataset {
     }
 
     public String getDiabetesDuration() {
-        return this.diabetesDuration;
+        return this.diabetesDuration + "(dd)";
     }
 
     public void setDiabetesDuration(String diabetesDuration) {
@@ -218,7 +218,7 @@ public class RepositoryFileDataset {
     }
 
     public String getHypertensionHistory() {
-        return this.hypertensionHistory;
+        return this.hypertensionHistory + "(hh)";
     }
 
     public void setHypertensionHistory(String hypertensionHistory) {
@@ -226,7 +226,7 @@ public class RepositoryFileDataset {
     }
 
     public String getHypertensionDuration() {
-        return this.hypertensionDuration;
+        return this.hypertensionDuration + "(hd)";
     }
 
     public void setHypertensionDuration(String hypertensionDuration) {
@@ -234,7 +234,7 @@ public class RepositoryFileDataset {
     }
 
     public String getOnRaasBlockade() {
-        return this.onRaasBlockade;
+        return this.onRaasBlockade + "(rb)";
     }
 
     public void setOnRaasBlockade(String onRaasBlockade) {

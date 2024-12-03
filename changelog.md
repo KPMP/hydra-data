@@ -3,6 +3,7 @@
 ## Release 1.6 
 
 Brief summary of what's in this release:
+- uniquifying the clinical data filters by adding a few characters so filtering works correctly in app
 
 ### Breaking changes
 
