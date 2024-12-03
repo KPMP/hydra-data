@@ -120,61 +120,61 @@ public class RepositoryFileDatasetTest {
     @Test
     public void setKdigoStage() {
         repositoryDataset.setKdigoStage("stage 11");
-        assertEquals("stage 11", repositoryDataset.getKdigoStage());
+        assertEquals("stage 11 (ks)", repositoryDataset.getKdigoStage());
     }
 
     @Test
     public void setBaselineEgfr() {
         repositoryDataset.setBaselineEgfr("13");
-        assertEquals("13", repositoryDataset.getBaselineEgfr());
+        assertEquals("13 (eGFR)", repositoryDataset.getBaselineEgfr());
     }
 
     @Test
     public void setProteinuria() {
         repositoryDataset.setProteinuria("1234");
-        assertEquals("1234", repositoryDataset.getProteinuria());
+        assertEquals("1234 (prot)", repositoryDataset.getProteinuria());
     }
 
     @Test
     public void setA1c() {
         repositoryDataset.setA1c("90%");
-        assertEquals("90%", repositoryDataset.getA1c());
+        assertEquals("90% (a1c)", repositoryDataset.getA1c());
     }
 
     @Test
     public void setAlbuminuria() {
         repositoryDataset.setAlbuminuria("yup");
-        assertEquals("yup", repositoryDataset.getAlbuminuria());
+        assertEquals("yup (alb)", repositoryDataset.getAlbuminuria());
     }
 
     @Test
     public void setDiabetesDuration(){
         repositoryDataset.setDiabetesDuration("1 years");
-        assertEquals("1 years", repositoryDataset.getDiabetesDuration());
+        assertEquals("1 years (dd)", repositoryDataset.getDiabetesDuration());
     }
 
     @Test
     public void setDiabetesHistory() {
         repositoryDataset.setDiabetesHistory("no");
-        assertEquals("no", repositoryDataset.getDiabetesHistory());
+        assertEquals("no (dh)", repositoryDataset.getDiabetesHistory());
     }
 
     @Test
     public void setHypertensionDuration() {
         repositoryDataset.setHypertensionDuration("1 years");
-        assertEquals("1 years", repositoryDataset.getHypertensionDuration());
+        assertEquals("1 years (hd)", repositoryDataset.getHypertensionDuration());
     }
 
     @Test
     public void setHypertensionHistory() {
         repositoryDataset.setHypertensionHistory("no");
-        assertEquals("no", repositoryDataset.getHypertensionHistory());
+        assertEquals("no (hh)", repositoryDataset.getHypertensionHistory());
     }
 
     @Test
     public void setOnRaasBlockade() {
         repositoryDataset.setOnRaasBlockade("no");
-        assertEquals("no", repositoryDataset.getOnRaasBlockade());
+        assertEquals("no (rb)", repositoryDataset.getOnRaasBlockade());
     }
 
 }
