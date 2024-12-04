@@ -221,7 +221,7 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setHypertensionHistory_whenBlank() {
-        repositoryDataset.getHypertensionHistory();
+        repositoryDataset.setHypertensionHistory("");
         assertEquals("", repositoryDataset.getHypertensionHistory());
     }
 
