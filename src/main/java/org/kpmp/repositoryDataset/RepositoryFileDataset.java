@@ -162,7 +162,7 @@ public class RepositoryFileDataset {
     }
 
     public String getKdigoStage() {
-        return this.kdigoStage + "(ks)";
+        return this.kdigoStage.isBlank() ? this.kdigoStage: this.kdigoStage + "(ks)";
     }
 
     public void setKdigoStage(String kdigoStage) {
@@ -170,7 +170,7 @@ public class RepositoryFileDataset {
     }
 
     public String getBaselineEgfr() {
-        return this.baselineEgfr + "(eGFR)";
+        return this.baselineEgfr.isBlank() ? this.baselineEgfr: this.baselineEgfr + "(eGFR)";
     }
 
     public void setBaselineEgfr(String baselineEgfr) {
@@ -178,7 +178,7 @@ public class RepositoryFileDataset {
     }
 
     public String getProteinuria() {
-        return this.proteinuria + "(prot)";
+        return this.proteinuria.isBlank() ? this.proteinuria: this.proteinuria + "(prot)";
     }
 
     public void setProteinuria(String proteinuria) {
@@ -186,7 +186,7 @@ public class RepositoryFileDataset {
     }
 
     public String getA1c() {
-        return this.a1c + "(a1c)";
+        return this.a1c.isBlank() ? this.a1c: this.a1c + "(a1c)";
     }
 
     public void setA1c(String a1c) {
@@ -194,7 +194,7 @@ public class RepositoryFileDataset {
     }
 
     public String getAlbuminuria() {
-        return this.albuminuria + "(alb)";
+        return this.albuminuria.isBlank() ? this.albuminuria: this.albuminuria + "(alb)";
     }
 
     public void setAlbuminuria(String albuminuria) {
@@ -202,7 +202,7 @@ public class RepositoryFileDataset {
     }
 
     public String getDiabetesHistory() {
-        return this.diabetesHistory + "(dh)";
+        return this.diabetesHistory.isBlank() ? this.diabetesHistory: this.diabetesHistory + "(dh)";
     }
 
     public void setDiabetesHistory(String diabetesHistory) {
@@ -210,7 +210,7 @@ public class RepositoryFileDataset {
     }
 
     public String getDiabetesDuration() {
-        return this.diabetesDuration + "(dd)";
+        return this.diabetesDuration.isBlank() ? this.diabetesDuration: this.diabetesDuration + "(dd)";
     }
 
     public void setDiabetesDuration(String diabetesDuration) {
@@ -218,7 +218,7 @@ public class RepositoryFileDataset {
     }
 
     public String getHypertensionHistory() {
-        return this.hypertensionHistory + "(hh)";
+        return this.hypertensionHistory.isBlank() ? this.hypertensionHistory: this.hypertensionHistory + "(hh)";
     }
 
     public void setHypertensionHistory(String hypertensionHistory) {
@@ -226,7 +226,7 @@ public class RepositoryFileDataset {
     }
 
     public String getHypertensionDuration() {
-        return this.hypertensionDuration + "(hd)";
+        return this.hypertensionDuration.isBlank() ? this.hypertensionDuration: this.hypertensionDuration + "(hd)";
     }
 
     public void setHypertensionDuration(String hypertensionDuration) {
@@ -234,7 +234,7 @@ public class RepositoryFileDataset {
     }
 
     public String getOnRaasBlockade() {
-        return this.onRaasBlockade + "(rb)";
+        return this.onRaasBlockade.isBlank() ? this.onRaasBlockade: this.onRaasBlockade + "(rb)";
     }
 
     public void setOnRaasBlockade(String onRaasBlockade) {
