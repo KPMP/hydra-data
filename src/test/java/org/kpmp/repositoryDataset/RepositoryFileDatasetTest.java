@@ -124,9 +124,21 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
+    public void setKdigoStage_whenBlank() {
+        repositoryDataset.setKdigoStage("");
+        assertEquals("", repositoryDataset.getKdigoStage());
+    }
+
+    @Test
     public void setBaselineEgfr() {
         repositoryDataset.setBaselineEgfr("13");
         assertEquals("13 (eGFR)", repositoryDataset.getBaselineEgfr());
+    }
+
+    @Test
+    public void setBaselineEgfr_whenBlank() {
+        repositoryDataset.setBaselineEgfr("");
+        assertEquals("", repositoryDataset.getBaselineEgfr());
     }
 
     @Test
@@ -136,9 +148,21 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
+    public void setProteinuria_whenBlank() {
+        repositoryDataset.setProteinuria("");
+        assertEquals("", repositoryDataset.getProteinuria());
+    }
+
+    @Test
     public void setA1c() {
         repositoryDataset.setA1c("90%");
         assertEquals("90% (a1c)", repositoryDataset.getA1c());
+    }
+
+    @Test
+    public void setA1c_whenBlank() {
+        repositoryDataset.setA1c("");
+        assertEquals("", repositoryDataset.getA1c());
     }
 
     @Test
@@ -148,9 +172,21 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
+    public void setAlbuminuria_whenBlank() {
+        repositoryDataset.setAlbuminuria("");
+        assertEquals("", repositoryDataset.getAlbuminuria());
+    }
+
+    @Test
     public void setDiabetesDuration(){
         repositoryDataset.setDiabetesDuration("1 years");
         assertEquals("1 years (dd)", repositoryDataset.getDiabetesDuration());
+    }
+
+    @Test
+    public void setDiabetesDuration_whenBlank() {
+        repositoryDataset.setDiabetesDuration("");
+        assertEquals("", repositoryDataset.getDiabetesDuration());
     }
 
     @Test
@@ -160,9 +196,21 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
+    public void setDiabetesHistory_whenBlank() {
+        repositoryDataset.setDiabetesHistory("");
+        assertEquals("", repositoryDataset.getDiabetesHistory());
+    }
+
+    @Test
     public void setHypertensionDuration() {
         repositoryDataset.setHypertensionDuration("1 years");
         assertEquals("1 years (hd)", repositoryDataset.getHypertensionDuration());
+    }
+
+    @Test
+    public void setHypertensionDuration_whenBlank() {
+        repositoryDataset.setHypertensionDuration("");
+        assertEquals("", repositoryDataset.getHypertensionDuration());
     }
 
     @Test
@@ -172,9 +220,20 @@ public class RepositoryFileDatasetTest {
     }
 
     @Test
+    public void setHypertensionHistory_whenBlank() {
+        repositoryDataset.setHypertensionHistory("");
+        assertEquals("", repositoryDataset.getHypertensionHistory());
+    }
+
+    @Test
     public void setOnRaasBlockade() {
         repositoryDataset.setOnRaasBlockade("no");
         assertEquals("no (rb)", repositoryDataset.getOnRaasBlockade());
     }
 
+    @Test
+    public void setOnRaasBlockade_whenBlank() {
+        repositoryDataset.setOnRaasBlockade("");
+        assertEquals("", repositoryDataset.getOnRaasBlockade());
+    }
 }
