@@ -6,7 +6,7 @@ type RepositoryDatasetDisplay {
     dlFileId: String
     redcapId: [String]
     sampleType: [String]
-    tissueType: [String]
+    enrollmentCategory: [String]
     ageBinned: [String]
     sex: [String]
     doi: [String]
@@ -26,4 +26,17 @@ type RepositoryDatasetDisplay {
     fileNameSort: String
     participantIdSort: String
     platformSort: String
+    primaryAdjudicatedCategory: String
+    kdigoStage: String
+    baselineEgfr: String
+    proteinuria: String
+    a1c: String
+    albuminuria: String
+    diabetesDuration: String
+    diabetesHistory: String
+    hypertensionDuration: String
+    hypertensionHistory: String
+    race: String
+    onRaasBlockade: String
+
 }

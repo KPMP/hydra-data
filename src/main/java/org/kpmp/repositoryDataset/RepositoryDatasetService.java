@@ -72,13 +72,25 @@ public class RepositoryDatasetService  {
             displayFile.addAgeBinned(repositoryDataset.getAgeBinned());
             displayFile.addRedCapId(repositoryDataset.getId().getRedcapId());
             displayFile.addSampleType(repositoryDataset.getSampleType());
-            displayFile.addTissueType(repositoryDataset.getTissueType());
+            displayFile.addEnrollmentCategory(repositoryDataset.getEnrollmentCategory());
             displayFile.addSex(repositoryDataset.getSex());
             displayFile.addProtocol(repositoryDataset.getProtocol());
             displayFile.addTissueSource(repositoryDataset.getTissueSource());
             displayFile.addExperimentalStrategy(repositoryDataset.getId().getExperimentalStrategy());
 			displayFile.addDoi(repositoryDataset.getId().getDoi());
             displayFile.addWorkflowType(repositoryDataset.getWorkflowType());
+            displayFile.addA1c(repositoryDataset.getA1c());
+            displayFile.addAlbuminuria(repositoryDataset.getAlbuminuria());
+            displayFile.addBaselineEgfr(repositoryDataset.getBaselineEgfr());
+            displayFile.addDiabetesDuration(repositoryDataset.getDiabetesDuration());
+            displayFile.addDiabetesHistory(repositoryDataset.getDiabetesHistory());
+            displayFile.addPrimaryAdjudicatedCategory(repositoryDataset.getPrimaryAdjudicatedCategory());
+            displayFile.addKdigoStage(repositoryDataset.getKdigoStage());
+            displayFile.addProteinuria(repositoryDataset.getProteinuria());
+            displayFile.addHypertensionDuration(repositoryDataset.getHypertensionDuration());
+            displayFile.addHypertensionHistory(repositoryDataset.getHypertensionHistory());
+            displayFile.addRace(repositoryDataset.getRace());
+            displayFile.addOnRaasBlockade(repositoryDataset.getOnRaasBlockade());
 			displayFile.setAccess(repositoryDataset.getAccess());
             displayFiles.put(repositoryDataset.getId().getDlFileId(), displayFile);
         } else {
