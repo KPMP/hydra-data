@@ -3,11 +3,15 @@ package org.kpmp.repositoryDataset;
 import java.util.HashSet;
 import java.util.TreeSet;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.apache.commons.text.WordUtils;
 
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonPropertyOrder(
+        {"file_id","access","platform","release_version","data_format","data_category","data_type","file_size","file_name","package_id","file_name_sort","protocol","tissue_source","experimental_strategy","workflow_type","redcap_id","sample_type","enrollment_category","age_binned","sex","dois","primary_adjudicated_category","kdigo_stage","baseline_egfr","proteinuria","a1c","albuminuria","diabetes_duration","diabetes_history","hypertension_history","hypertension_duration","race","on_raas_blockade","experimental_strategy_sort","participant_id_sort","doi_sort","platform_sort"}
+)
 public class RepositoryDatasetDisplay {
     private static final int UUID_LENGTH = 37;
     private String dlFileId;
