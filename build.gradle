@@ -13,7 +13,7 @@ plugins {
 }
 	
 group='kingstonduo'
-version='1.6'
+version='1.7'
 
 
 apply plugin: 'java'
