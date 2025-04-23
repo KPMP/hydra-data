@@ -1,5 +1,16 @@
 # Changelog
 
+## Release 1.7 
+
+Brief summary of what's in this release:
+- Fixed tests
+
+### Breaking changes
+
+### Non-breaking changes
+
+----
+
 ## Release 1.6 
 
 Brief summary of what's in this release:
