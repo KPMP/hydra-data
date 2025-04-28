@@ -1,13 +1,25 @@
 # Changelog
 
-## Release 1.7 
+## Release 1.8 [ unreleased ]
+
+Brief summary of what's in this release:
+
+### Breaking changes
+
+### Non-breaking changes
+
+----
+
+## Release 1.7 (04/25/2025)
 
 Brief summary of what's in this release:
 - Fixed tests
 
 ### Breaking changes
+- n/a
 
 ### Non-breaking changes
+-n/a
 
 ----
 
