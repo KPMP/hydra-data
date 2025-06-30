@@ -3,10 +3,10 @@
 ## Release 1.8 [ unreleased ]
 
 Brief summary of what's in this release:
+- no changes, increasing version number to be aligned with front-end version
 
 ### Breaking changes
-
-### Non-breaking changes
+n/a
 
 ----
 
