@@ -1,6 +1,10 @@
 # Changelog
 
-## Release 1.8 [ unreleased ]
+## Release 1.9 (unreleased)
+Brief summary of what's in this release:
+- Do not substring fileName for WGS files
+
+## Release 1.8 (06/30/25)
 
 Brief summary of what's in this release:
 - no changes, increasing version number to be aligned with front-end version
