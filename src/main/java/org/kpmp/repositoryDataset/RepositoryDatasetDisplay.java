@@ -503,7 +503,11 @@ public class RepositoryDatasetDisplay {
     public String getFileNameSort() {
         if(this.fileName == null || this.fileName.isEmpty()){
             return null;
-        }else{
+        }
+        else if (this.getExperimentalStrategySort().contains("Whole Genome Sequencing")) {
+            return this.fileName;
+        }
+        else{
             fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
             return fileNameSort;
         }
