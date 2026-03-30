@@ -1,7 +1,12 @@
 # Changelog
 
-## Release 1.11 (unreleased)
+## Release 1.12 (unreleased)
+
+----
+
+## Release 1.11
 Brief summary:
+- No changes, just increasing version number
 
 ### Breaking changes
 
