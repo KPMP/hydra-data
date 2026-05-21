@@ -79,4 +79,4 @@ bootBuildImage {
 }
 
 // Docker image building is now handled by Spring Boot's bootBuildImage task
-// Usage: ./gradlew bootBuildImage --imageName=kingstonduo/hydra-data:<IMAGE_TAG>
+// Usage: ./gradlew bootBuildImage
