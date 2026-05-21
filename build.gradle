@@ -73,5 +73,10 @@ def getCurrentGitBranch() {
     }
 }
 
+bootBuildImage {
+    imageName = "kingstonduo/hydra-data:" + getCurrentGitBranch()
+    createdDate = "now"
+}
+
 // Docker image building is now handled by Spring Boot's bootBuildImage task
 // Usage: ./gradlew bootBuildImage --imageName=kingstonduo/hydra-data:<IMAGE_TAG>
