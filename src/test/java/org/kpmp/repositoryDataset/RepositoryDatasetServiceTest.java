@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
@@ -61,6 +62,33 @@ public class RepositoryDatasetServiceTest {
 	}
 
 	@Test
+	public void testReleaseVersionWithDatabaseScaleDifference() throws Exception {
+		ReflectionTestUtils.setField(service, "recentlyReleasedDate", "2024-01-01");
+		RepositoryFileDataset repositoryDataset = new RepositoryFileDataset();
+		RepositoryFileDatasetId id = new RepositoryFileDatasetId();
+		id.setDlFileId("22.1-file");
+		repositoryDataset.setA1c("123");
+		repositoryDataset.setAlbuminuria("321");
+		repositoryDataset.setBaselineEgfr("456");
+		repositoryDataset.setKdigoStage("123");
+		repositoryDataset.setDiabetesHistory("hist");
+		repositoryDataset.setDiabetesDuration("987");
+		repositoryDataset.setProteinuria("567");
+		repositoryDataset.setHypertensionDuration("123");
+		repositoryDataset.setHypertensionHistory("hhist1");
+		repositoryDataset.setOnRaasBlockade("raas");
+		repositoryDataset.setId(id);
+		repositoryDataset.setReleaseVersion(new BigDecimal("22.1"));
+
+		when(fileRepo.max()).thenReturn(new BigDecimal("22.10"));
+		when(fileRepo.findAll()).thenReturn(Arrays.asList(repositoryDataset));
+
+		List<RepositoryDatasetDisplay> result = service.getRepositoryDataset();
+
+		assertEquals("Recently Released - 2024-01-01", result.get(0).getReleaseVersion());
+	}
+
+	@Test
 	public void testRepositoryFileDataset() throws JSONException, Exception {
 		List<RepositoryFileDataset> expectedResult = new ArrayList<>();
 		RepositoryFileDataset repositoryDataset3 = new RepositoryFileDataset();
@@ -77,7 +105,7 @@ public class RepositoryDatasetServiceTest {
 		repositoryDataset3.setHypertensionDuration("123");
 		repositoryDataset3.setHypertensionHistory("hhist1");
 		repositoryDataset3.setOnRaasBlockade("raas");
-		repositoryDataset3.setReleaseVersion(3.45);
+		repositoryDataset3.setReleaseVersion(new BigDecimal(3.45));
 		RepositoryFileDataset repositoryDataset4 = new RepositoryFileDataset();
 		RepositoryFileDatasetId id4 = new RepositoryFileDatasetId();
 		id4.setDlFileId("321");
@@ -92,9 +120,10 @@ public class RepositoryDatasetServiceTest {
 		repositoryDataset4.setHypertensionDuration("123");
 		repositoryDataset4.setHypertensionHistory("hhist2");
 		repositoryDataset4.setOnRaasBlockade("raas");
-		repositoryDataset4.setReleaseVersion(3.45);
+		repositoryDataset4.setReleaseVersion(new BigDecimal(3.45));
 		expectedResult.add(repositoryDataset3);
 		expectedResult.add(repositoryDataset4);
+		when(fileRepo.max()).thenReturn(new BigDecimal("99.0"));
 		when(fileRepo.findAll()).thenReturn(expectedResult);
 		List<RepositoryDatasetDisplay> expectedResult1 = service.getRepositoryDataset();
 		assertEquals(expectedResult1.size(), 1);
@@ -125,7 +154,7 @@ public class RepositoryDatasetServiceTest {
 		repositoryDataset3.setHypertensionDuration("123");
 		repositoryDataset3.setHypertensionHistory("hhist1");
 		repositoryDataset3.setOnRaasBlockade("raas");
-		repositoryDataset3.setReleaseVersion(3.45);
+		repositoryDataset3.setReleaseVersion(new BigDecimal(3.45));
 		RepositoryFileDataset repositoryDataset4 = new RepositoryFileDataset();
 		RepositoryFileDatasetId id4 = new RepositoryFileDatasetId();
 		id4.setDlFileId("321");
@@ -141,9 +170,10 @@ public class RepositoryDatasetServiceTest {
 		repositoryDataset4.setHypertensionDuration("123");
 		repositoryDataset4.setHypertensionHistory("hhist2");
 		repositoryDataset4.setOnRaasBlockade("raas");
-		repositoryDataset4.setReleaseVersion(3.45);
+		repositoryDataset4.setReleaseVersion(new BigDecimal(3.45));
 		expectedResult2.add(repositoryDataset3);
 		expectedResult2.add(repositoryDataset4);
+		when(fileRepo.max()).thenReturn(new BigDecimal("99.0"));
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
 		String expectedJson = "[{\"file_id\":\"123\",\"access\":null,\"platform\":null,\"release_version\":null,\"data_format\":null,\"data_category\":null,\"data_type\":null,\"file_size\":null,\"file_name\":null,\"package_id\":null,\"file_name_sort\":null,\"protocol\":null,\"tissue_source\":null,\"experimental_strategy\":null,\"workflow_type\":null,\"redcap_id\":[\"123\"],\"sample_type\":null,\"enrollment_category\":null,\"age_binned\":null,\"sex\":null,\"dois\":null,\"primary_adjudicated_category\":null,\"kdigo_stage\":[\"123 (ks)\"],\"baseline_egfr\":[\"456 (eGFR)\"],\"proteinuria\":[\"567 (prot)\"],\"a1c\":[\"123 (a1c)\"],\"albuminuria\":[\"321 (alb)\"],\"diabetes_duration\":[\"987 (dd)\"],\"diabetes_history\":[\"Hist (dh)\"],\"hypertension_history\":[\"Hhist1 (hh)\"],\"hypertension_duration\":[\"123 (hd)\"],\"race\":null,\"on_raas_blockade\":[\"raas (rb)\"],\"experimental_strategy_sort\":\"\",\"participant_id_sort\":\"123\",\"doi_sort\":\"\",\"platform_sort\":\"aaaaa\"},{\"file_id\":\"321\",\"access\":null,\"platform\":null,\"release_version\":null,\"data_format\":null,\"data_category\":null,\"data_type\":null,\"file_size\":null,\"file_name\":null,\"package_id\":null,\"file_name_sort\":null,\"protocol\":null,\"tissue_source\":null,\"experimental_strategy\":null,\"workflow_type\":null,\"redcap_id\":[\"321\"],\"sample_type\":null,\"enrollment_category\":null,\"age_binned\":null,\"sex\":null,\"dois\":null,\"primary_adjudicated_category\":null,\"kdigo_stage\":[\"123 (ks)\"],\"baseline_egfr\":[\"456 (eGFR)\"],\"proteinuria\":[\"567 (prot)\"],\"a1c\":[\"321 (a1c)\"],\"albuminuria\":[\"321 (alb)\"],\"diabetes_duration\":[\"987 (dd)\"],\"diabetes_history\":[\"Hist (dh)\"],\"hypertension_history\":[\"Hhist2 (hh)\"],\"hypertension_duration\":[\"123 (hd)\"],\"race\":null,\"on_raas_blockade\":[\"raas (rb)\"],\"experimental_strategy_sort\":\"\",\"participant_id_sort\":\"321\",\"doi_sort\":\"\",\"platform_sort\":\"aaaaa\"}]";
 		HttpEntity<Object> entity = new HttpEntity<>(expectedJson, headers);
