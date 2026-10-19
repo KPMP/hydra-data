@@ -3,6 +3,7 @@ package org.kpmp;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class QueryTest {
         repositoryFileDataset.setPackageId("package_id");
         repositoryFileDataset.setPlatform("platform");
         repositoryFileDataset.setProtocol("protocol");
-        repositoryFileDataset.setReleaseVersion(9.0);
+        repositoryFileDataset.setReleaseVersion(new BigDecimal(9.0));
         repositoryFileDataset.setSampleType("SampleType");
         repositoryFileDataset.setSex("Male");
         repositoryFileDataset.setTissueSource("Kidneys");

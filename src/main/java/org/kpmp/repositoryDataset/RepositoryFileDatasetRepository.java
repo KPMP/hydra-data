@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -13,6 +14,6 @@ public interface RepositoryFileDatasetRepository
 
     List<RepositoryFileDataset> findAll();
 
-    @Query (value = "SELECT MAX(release_version) AS max FROM repo_file_v", nativeQuery = true)
-    public Double max();
+    @Query (value = "SELECT release_version FROM repo_file_v WHERE release_version = (SELECT MAX(release_version) FROM repo_file_v) limit 1", nativeQuery = true)
+    public BigDecimal max();
 }

@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.math.BigDecimal;
 import java.io.IOException;
 
 @Component
@@ -62,7 +63,7 @@ public class RepositoryDatasetService  {
 
   public List<RepositoryDatasetDisplay> getRepositoryDataset() throws Exception {
     List <RepositoryFileDataset> datasets = new ArrayList<>(); 
-    Double maxReleaseVersion = fileRepo.max();
+	BigDecimal maxReleaseVersion = fileRepo.max();
     datasets.addAll(fileRepo.findAll());
     Map<String, RepositoryDatasetDisplay> displayFiles = new HashMap<>();
 	for (RepositoryFileDataset repositoryDataset : datasets) {
@@ -96,7 +97,7 @@ public class RepositoryDatasetService  {
         } else {
             RepositoryDatasetDisplay displayFile = new RepositoryDatasetDisplay(repositoryDataset);
             
-            if (Double.compare(repositoryDataset.getReleaseVersion(), maxReleaseVersion) == 0) {
+			if (repositoryDataset.getReleaseVersion().compareTo(maxReleaseVersion) == 0) {
 			    displayFile.setReleaseVersion("Recently Released - " + recentlyReleasedDate); 
 		    } else {
 			    displayFile.setReleaseVersion(null);

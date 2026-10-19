@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.math.BigDecimal;
+
 public class RepositoryFileDatasetTest {
 
     private RepositoryFileDataset repositoryDataset;
@@ -107,8 +109,8 @@ public class RepositoryFileDatasetTest {
 
     @Test
     public void setReleaseVersion() {
-        repositoryDataset.setReleaseVersion(45.0);
-        assertEquals(45.0, repositoryDataset.getReleaseVersion());
+        repositoryDataset.setReleaseVersion(new BigDecimal(45.0));
+        assertEquals(new BigDecimal(45.0), repositoryDataset.getReleaseVersion());
     }
 
     @Test

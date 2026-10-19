@@ -3,6 +3,8 @@ package org.kpmp.repositoryDataset;
 import jakarta.persistence.*;
 import org.springframework.lang.Nullable;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "repo_file_v")
 public class RepositoryFileDataset {
@@ -23,7 +25,7 @@ public class RepositoryFileDataset {
     private String protocol;
     private String packageId;
     private String tissueSource;
-    private Double releaseVersion;
+    private BigDecimal releaseVersion;
     @Column(name = "primary_adjudicated_cat")
     private String primaryAdjudicatedCategory;
     private String kdigoStage;
@@ -265,14 +267,13 @@ public class RepositoryFileDataset {
         this.tissueSource = tissueSource;
     }
 
-    public Double getReleaseVersion() {
+    public BigDecimal getReleaseVersion() {
         return releaseVersion;
     }
 
-    public void setReleaseVersion(Double releaseVersion) {
+    public void setReleaseVersion(BigDecimal releaseVersion) {
         this.releaseVersion = releaseVersion;
     }
-
 
 
 }

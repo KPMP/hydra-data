@@ -1,6 +1,12 @@
 # Changelog
 
-## Release 1.12 (unreleased)
+## Release 1.13 (unreleased)
+
+----
+
+## Release 1.12 
+Brief Summary:
+- Fixed a bug to avoid rounding errors, so release versions with closely related version number are matched correctly
 
 ----
 
