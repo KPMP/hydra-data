@@ -73,6 +73,12 @@ def getCurrentGitBranch() {
     }
 }
 
+task printImageTag {
+    doLast {
+        println "kingstonduo/hydra-data:" + getCurrentGitBranch()
+    }
+}
+
 bootBuildImage {
     imageName = "kingstonduo/hydra-data:" + getCurrentGitBranch()
     createdDate = "now"
